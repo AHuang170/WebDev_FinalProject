@@ -1,18 +1,3 @@
-var gs_trees = ["Iron_Sword_Path", "Amons_Sword_Path"];
-var ls_trees = [];
-var sns_trees = [];
-var db_trees = [];
-var ham_trees = [];
-var hrn_trees = [];
-var lan_trees = [];
-var gl_trees = [];
-var sa_trees = [];
-var cb_trees = [];
-var ig_trees = [];
-var lbg_trees = [];
-var hbg_trees = [];
-var bow_trees = [];
-
 var server = "http://localhost:3000";
 
 
@@ -529,7 +514,7 @@ function clear_list(){
 function option_select (option){
     if(option.indexOf("wpn_") != -1){
         var wpn_option = option.replace("wpn_", "");
-        select_wpn_type(wpn_option);
+        init_wpn_list(wpn_option);
         
     }
     else if(option.indexOf("armor_") != -1){
@@ -540,7 +525,23 @@ function option_select (option){
     
 }
 
-function select_wpn_type(selection){
+function get_wpn_path_list(wpn_type){
+    var returned_data = "";
+    fetch(server+"/get_path_list/"+wpn_type).then((resp)=>{
+                return resp.text();
+            }).then((text)=>{
+                //alert(text);
+                returned_data = text.slice();
+                //console.log("server output" + returned_data);
+                curr_selected_tree_list = eval(returned_data);
+                select_wpn_type(curr_selected_tree_list);
+                //curr_selected_tree = document.getElementById("clipboard").innerHTML;
+                //console.log(document.getElementById("clipboard").innerHTML);
+                
+            });
+}
+
+function init_wpn_list(selection){
     if(selection != selected_gear){
         document.getElementById("tree_header_bot").innerHTML = '';
         selected_gear = selection;
@@ -556,7 +557,21 @@ function select_wpn_type(selection){
         document.getElementById("selection").style.opacity = "0";
         reset_prev_selection();
         
-        var selected_wpn_type_lise = eval(selection + "_trees");
+        get_wpn_path_list(selection);
+        update_header(selection);
+    }
+}
+
+function select_wpn_type(selected_list){
+    if(selection != selected_gear){
+        
+        
+        
+        
+        //var selected_wpn_type_lise = eval(selection + "_trees");
+        var selected_wpn_type_lise = selected_list.slice();
+        curr_selected_tree_list = selected_list.slice();
+        //console.log(selected_wpn_type_lise);
         
         for(var index = 0; index < selected_wpn_type_lise.length; index++){
             var new_option = document.createElement("option");
@@ -575,9 +590,6 @@ function select_wpn_type(selection){
         }
         display_control();
     }
-    update_header(selection);
-    
-    
 }
 
 function select_armor(selection){
@@ -1807,7 +1819,7 @@ document.getElementById("preview_lable").addEventListener("click", function(){
 var page_bgm = new Audio("Audio/Tracks/mhfu_install_theme.mp3");
 var first_play = true;
 
-var track_list = ["Audio/Tracks/main_theme.mp3", "Audio/Tracks/mhfu_install_theme.mp3", "Audio/Tracks/shagaru_magala_theme.mp3", "Audio/Tracks/white_fatalis_theme.mp3", "Audio/Tracks/zinogre_theme"];
+var track_list = ["Audio/Tracks/main_theme.mp3", "Audio/Tracks/mhfu_install_theme.mp3", "Audio/Tracks/shagaru_magala_theme.mp3", "Audio/Tracks/white_fatalis_theme.mp3", "Audio/Tracks/zinogre_theme.mp3"];
 var track_pool = [];
 
 function play_audio(input){
@@ -1857,6 +1869,7 @@ function random_playback(){
 }
 
 document.getElementById("play_button").addEventListener("click", function(){
+    
     if(playback){
         
         playback = false;

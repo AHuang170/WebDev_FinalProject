@@ -40,6 +40,22 @@ var gs_Amons_Sword_Path = [
 //{type: 'connector', pic: 'Img/connector_.png'}
 //{type: 'blank'}
 
+var gs_trees = ["Iron_Sword_Path", "Amons_Sword_Path"];
+var ls_trees = [];
+var sns_trees = [];
+var db_trees = [];
+var ham_trees = [];
+var hrn_trees = [];
+var lan_trees = [];
+var gl_trees = [];
+var sa_trees = [];
+var cb_trees = [];
+var ig_trees = [];
+var lbg_trees = [];
+var hbg_trees = [];
+var bow_trees = [];
+
+
 app.use(cors());
 
 app.listen(3000, (err)=>{
@@ -63,6 +79,14 @@ app.get("/hi/:string", (req, resp)=>{
 app.get("/get_arr/:string", (req, resp)=>{
     var input_selection = req.params.string;
     var selected_arr = eval(input_selection);
+    var return_string = JSON.stringify(selected_arr);
+    //console.log(return_string);
+    resp.end(return_string);
+});
+
+app.get("/get_path_list/:string", (req, resp)=>{
+    var input_selection = req.params.string;
+    var selected_arr = eval(input_selection + "_trees");
     var return_string = JSON.stringify(selected_arr);
     //console.log(return_string);
     resp.end(return_string);
