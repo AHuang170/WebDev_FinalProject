@@ -1,0 +1,1394 @@
+body{
+   
+    transition: 500ms;
+}
+
+#background{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0px;
+    left: 0px;
+    background-image: url(Img/background.jpg);
+    background-size:cover;
+    
+}
+
+#tree_header{
+    z-index: 30;
+    position: fixed;
+    top: 24px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    transition: 400ms;
+    width: 300px;
+    height: 50px;
+    visibility: hidden;
+    background-image: url(Img/header.jpg);
+    opacity: 0;
+    cursor: pointer;
+    border: 3px groove;
+    border-color: slategrey;
+    font-size: 11pt;
+    
+}
+
+#tree_header_top{
+    width: 100%;
+    height: 48%;
+    position: absolute;
+    text-align: center;
+    text-shadow: 2px 2px black;
+    top: 0px;
+    left: 0px;
+    color: whitesmoke;
+    font-weight: bold;
+    transition: 400ms;
+}
+
+#tree_header_bot{
+    width: 100%;
+    height: 48%;
+    position: absolute;
+    text-align: center;
+    text-shadow: 2px 2px white;
+    bottom: 0px;
+    left: 0px;
+    color: black;
+    font-weight: bold;
+    transition: 400ms;
+}
+
+#content{
+    position:absolute;
+    top: 100px;
+    left: 25vw;
+    
+}
+
+#right_limit{
+    position: absolute;
+    top: 0px;
+    height: 10px;
+    width: 1px;
+    background-color: rgba(0,0,0,0);
+}
+
+#bottom_limit{
+    position: absolute;
+    left: 0px;
+    width: 10px;
+    height: 1px;
+    background-color: rgba(0,0,0,0);
+}
+
+/* ------------------------------------------------------ Info box styles ------------------------------------------------------ */
+#info_box{
+    z-index: 20;
+    position: absolute;
+    box-sizing: content-box;
+    border: 5px groove;
+    border-color: bisque;
+    margin: auto;
+    width: 210px;
+    height: 210px;
+    top: -200px;
+    left: 0px;
+    background-color: black;
+    visibility: hidden;
+    opacity = 0;
+    transition: 200ms;
+}
+
+#page_1{
+    visibility: hidden;
+    opacity = 0;
+    transition: 200ms;
+}
+
+#page_2{
+    visibility: hidden;
+    opacity = 0;
+    transition: 200ms;
+}
+
+#page_3{
+    visibility: hidden;
+    opacity = 0;
+    transition: 200ms;
+}
+
+#page_4{
+    visibility: hidden;
+    opacity = 0;
+    transition: 200ms;
+}
+
+#header{
+    position: absolute;
+    display: block;
+    background-color: black;
+    width: 210px;
+    height: 17%;
+    left: 0px;
+    top: 0px;
+}
+
+.name{
+    position: absolute;
+    color: white;
+    text-align: center;
+    top: 0px;
+    left: 0px;
+    height: 50%;
+    width: 100%;
+    cursor: move;
+}
+.rare{
+    position: absolute;
+    text-align: left;
+    height: 50%;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: chocolate;
+}
+
+.info_page{
+    position: absolute;
+    display: block;
+    cursor: pointer;
+    height: 82%;
+    width: 100%;
+    left:0px;
+    bottom: 0px;
+    background: black;
+}
+
+
+.lable{
+    text-align: left;
+    display: inline-block;
+    width: 46%;
+    left: 0px;
+    height: 100%;
+    color: dodgerblue;
+    vertical-align: top;
+}
+
+.value{
+    text-align: right;
+    display: inline-block;
+    width: 47%;
+    right: 0px;
+    height: 100%;
+    color: white;
+    vertical-align: top;
+    
+}
+
+.info_line{
+    
+    width:100%;
+    height: 10%;
+}
+
+#atk_lable{
+    color: dodgerblue;
+}
+
+#atk_val{
+    color: white;
+}
+
+
+#ele_lable{
+    position: relative;
+    text-align: left;
+    display: inline-block;
+    overflow: visible;
+    color: dodgerblue;
+    width: 70%;
+    height: 80%;
+    vertical-align: top;
+}
+
+#ele_val{
+    
+    text-align: right;
+    right: 0px;
+    display: inline-block;
+    color: white;
+    width: 23%;
+    height: 100%;
+}
+
+.sharp_lable{
+    color: dodgerblue;
+    width: 100%;
+    height: 10%;
+}
+
+#sharp{
+    border-top: 2px solid;
+    border-top-color: chocolate;
+    
+}
+
+#sharp_p_img_cont{
+    border-bottom: 2px solid;
+    border-bottom-color: chocolate;
+}
+
+.sharp_img_cont{
+    width:100%;
+    height:10%;
+}
+
+.sharp_img{
+    height:50%;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: 1px solid;
+    border-color: gainsboro;
+}
+
+#slot_lable{
+    color: dodgerblue;
+}
+
+#slot_val{
+    color: white;
+}
+#aff_lable{
+    color: dodgerblue;
+}
+
+#aff_val{
+    color: white;
+}
+
+#weap_type{
+    position: absolute;
+    border-top: 2px solid;
+    border-top-color: chocolate;
+    width: 100%;
+    bottom: 5px;
+    left: 0px;
+    
+}
+
+#weap_type_lable{
+    color: dodgerblue;
+    text-align: left;
+    display: inline-block;
+    width: 20%;
+    right: 0px;
+    height: 100%;
+}
+
+#weap_type_val{
+    color: white;
+    text-align: right;
+    display: inline-block;
+    width: 73%;
+    left: 0px;
+    
+    height: 100%;
+}
+
+#extra_info{
+    position: absolute;
+    color: white;
+    top: 0px;
+    left: 0px;
+}
+
+#flavour{
+    color: white;
+    overflow: auto;
+}
+
+.text_cont{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 80%;
+    width: 100%;
+}
+
+.cat_lable{
+    color: white;
+    font-size: 100%;
+    width: 100%;
+    height: 10%;
+}
+
+#parent_lable{
+    text-align: left;
+    color: white;
+}
+
+#parent_name{
+    text-align: center;
+    color: white;
+    border-top: 1px groove chocolate;
+    border-bottom: 1px groove chocolate;
+}
+
+.mat_lable{
+    text-align: left;
+    display: inline-block;
+    width: 87%;
+    left: 0px;
+    height: 100%;
+    color: dodgerblue;
+    vertical-align: top;
+    overflow: hidden;
+    font-size: 11pt;
+}
+
+.mat_value{
+    text-align: right;
+    display: inline-block;
+    width: 9%;
+    right: 0px;
+    height: 100%;
+    color: white;
+    vertical-align: top;
+}
+
+.cost_lable{
+    color: yellow;
+    text-align: left;
+    display: inline-block;
+    width: 20%;
+    left: 0px;
+    height: 100%;
+    
+}
+
+.cost_value{
+    color: white;
+    text-align: right;
+    display: inline-block;
+    width: 76%;
+    right: 0px;
+    height: 100%;
+}
+
+
+#info_img{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 82%;
+    transition: 200ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#lg_img{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    border-left:1px solid;
+    border-left-color: chocolate;
+        
+}
+
+.infoBox{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#get_cost{
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: 200ms;
+    width: 158px;
+    height: 10%;
+    cursor: pointer;
+}
+
+#get_cost:hover{
+    color: white!important;
+    background-color: black;
+}
+
+#main_cost_panel{
+    position: absolute;
+    height: 100%;
+    width: 206px;
+    top: 0px;
+    left: 0px;
+    transition: 200ms;
+    border: 2px groove;
+    border-color: chocolate;
+    background-color: black;
+    visibility: hidden;
+    opacity: 0;
+    
+}
+
+#main_cost_panel_header{
+    position: absolute;
+    height: 20px;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: rgb(20,20,20);
+    cursor: move;
+    text-align: center;
+    
+}
+
+.cost_panel_line{
+    height: 20px;
+    width: 100%;
+    text-align: center;
+    transition: 200ms;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    border-bottom: 1px solid;
+    border-bottom-color: chocolate;
+}
+
+.cost_panel_line:hover{
+    color: black!important;
+    background-color: whitesmoke!important; 
+}
+
+#shop_cost_line{
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    height: 20px;
+    width: 100%;
+    color: white;
+    background-color: black;    
+    text-align: center;
+    border-bottom: 1px solid;
+    border-bottom-color: chocolate;
+}
+
+
+#options_cont{
+    position: absolute;
+    top: 41px;
+    left: 0px;
+    width: 100%;
+    background: black;
+}
+
+.details_cont{
+    
+    position: absolute;
+    top: -21px;
+    width: 100%;
+    
+    visibility: hidden;
+    opacity: 0;
+    
+    background-color: black;
+    transition: 150ms;
+    border: 2px groove;
+    border-color: chocolate;
+    border-top-style: hidden;
+}
+
+.options_header{
+    position: absolute;
+    top: -22px;
+    left: -2px;
+    width: 100%;
+    height: 20px;
+    background-color: rgb(20,20,20);
+    color: white;
+    cursor: move;
+    text-align: center;
+    border: 2px groove;
+    border-color: chocolate;
+    border-bottom-style: hidden;
+    
+}
+
+.total_info_line{
+    
+    width:100%;
+    height: 20px;
+    border-top: 1px solid;
+    border-top-color: white;
+    
+    -webkit-animation: fade_in 300ms;
+    animation: fade_in 300ms;
+}
+
+#close_details_pan{
+    text-align: center;
+    cursor: pointer;
+    background-color: black;
+    color: red;
+}
+#close_details_pan:hover{
+    background-color: rgb(250,250,250)!important;
+    color: darkblue;
+}
+
+@-webkit-keyframes fade_in {
+    from {opacity: 0}
+    to {opacity: 1}
+    
+}@keyframes fade_in {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+.totalCost_lable{
+    color: yellow;
+    text-align: left;
+    display: inline-block;
+    width: 20%;
+    left: 0px;
+    height: 100%;
+    
+}
+
+.totalCost_value{
+    color: white;
+    text-align: right;
+    display: inline-block;
+    width: 75%;
+    right: 0px;
+    height: 100%;
+}
+
+#info_close{
+    position: absolute;
+    bottom: 2px;
+    right: 0px;
+    height: 40%;
+    width: 10%;
+
+    border: 1px solid;
+    border-color: red;
+    
+    text-align: center;
+    cursor: pointer;
+    
+}
+#info_close_txt{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    bottom: 1px;
+    font-size: 12pt;
+    text-align: center;
+    color: red;
+}
+
+#preview_lable{
+    position: absolute;
+    bottom: 1px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: 90px;
+    height: 50%;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+#close_option_div{
+    height: 20px;
+    width: 100%;
+    text-align: center;
+    transition: 200ms;
+    color: red;
+    background-color: black;
+    cursor: pointer;
+    border-bottom: 1px solid;
+    border-bottom-color: chocolate;
+}
+
+#close_option_div:hover{
+    color: darkblue;
+    background-color: whitesmoke!important; 
+}
+
+/* ------------------------------------------------------ End of Info box styles ------------------------------------------------------ */
+
+/* ------------------------------------------------------ Tree styles ------------------------------------------------------ */
+
+
+.tree_diagram{
+    -webkit-animation: drop 300ms;
+    animation: drop 1s;
+    top: 0px;
+    
+}
+
+@-webkit-keyframes drop {
+    from {top: -3000px}
+    to {top: 0px}
+    
+}@keyframes drop {
+    from {top: -3000px}
+    to {top: 0px}
+}
+
+.tree_diagram2{
+    -webkit-animation: drop2 300ms;
+    animation: drop2 1s;
+    top: 50px;
+    
+}
+
+@-webkit-keyframes drop2 {
+    from {top: -3000px}
+    to {top: 50px}
+    
+}@keyframes drop2 {
+    from {top: -3000px}
+    to {top: 50px}
+}
+
+#diagram2{
+    left: 0px;
+    top: 0px;
+    transition: 300ms;
+}
+
+#diagram{
+    transition 1s;
+    font-family: Forte;
+}
+
+
+
+.panel{
+    position: absolute;
+    
+    height: 100px;
+    width: 98px;
+    border: 2px ridge;
+    border-color: transparent;
+    background-color: black;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+.conn_panel{
+    position: absolute;
+    height: 100px;
+    width: 100px;   
+    
+}
+
+.tree{
+    position: absolute;
+    background-color: bisque;
+}
+
+.ImgPan{
+    position: absolute;
+    bottom: 0px;
+    left:0px;
+    height:75px;
+    width:100%;
+}
+
+.ConnPan{
+    position: absolute;
+    top:0px;
+    left:0px;
+    height:100%;
+    width:100%;
+}
+/* ------------------------------------------------------ End of Tree styles ------------------------------------------------------ */
+
+/* ------------------------------------------------------ Control styles ------------------------------------------------------ */
+#control{
+    position:fixed;
+    z-index: 500;
+    right: -150px;
+    top:170px;
+    margin: auto;
+    width:150px;
+    height:46px;
+    transition: 300ms;
+    visibility: hidden;
+    opacity: 0;
+    padding: 1px 2px;
+    background-color: rgba(120,120,250, 0.3);
+    
+}
+
+#show_ctr_button{
+    position: fixed;
+    top: 170px;
+    right: 0px;
+    width: 20px;
+    height: 75px;
+    background-image: url(Img/menu_bg.jpeg);
+    background-size: cover;
+    cursor: pointer;
+    color: transparent;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    
+}
+
+.control_list{
+    height: 20px;
+    width: 100%;
+    z-index: 100;
+}
+
+.control_button{
+    bottom: 0px;
+    width: 48%;
+    height: 23px;
+    bottom: 0px;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+#gen_button{
+    position: absolute;
+    left: 0px;
+}
+
+#del_button{
+    position: absolute;
+    right: 0px;
+}
+
+
+
+#tree_selection{
+    text-align: center;
+}
+#min_bar{
+    position: absolute;
+    top: 0px;
+    left: -15px;
+    width: 15px;
+    height: 100%;
+    background-image: url(Img/menu_bg.jpeg);
+    background-size: cover;
+    cursor: pointer;
+    color: transparent;
+    overflow: hidden;
+    border-top: 1px ridge;
+    border-bottom: 1px ridge;
+}
+/* ------------------------------------------------------ End of Control styles -----------------------------------------------*/
+
+/* ------------------------------------------------------ Options styles -----------------------------------------------*/
+#options_bg{
+    z-index: 39;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    visibility: visible;
+    opacity: 1;
+    transition: 200ms;
+    min-height: 200px;
+    min-width: 190px;
+    background-color: steelblue;
+    border-right: 1px solid;
+    border-right-color: darkgoldenrod;
+    overflow:visible;
+    
+}
+
+#options{
+    z-index: 40;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    visibility: visible;
+    opacity: 1;
+    transition: 200ms;
+    min-height: 200px;
+    min-width: 190px;
+    background-color: steelblue;
+    border-right: 1px solid;
+    border-right-color: darkgoldenrod;
+    
+}
+
+#options_containter{
+    
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: steelblue;
+    font-family: Forte;
+    transition: 300ms;
+    
+}
+
+#options_header{
+    z-index: 56;
+    position: relative;
+    display: block;
+    height:170px;
+    min-height: 20px;
+    width: 100%;
+    background-color: steelblue;
+}
+
+#header_img_cont{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    margin: auto;
+    height: 70%;
+    width: 70%;
+}
+
+.normal_bg{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    margin: auto;
+}
+
+#options_top{
+    z-index: 55;
+    position: relative;
+    display: block;
+    height: 10%;
+    min-height: 40px;
+    width: 100%;
+    background-color: steelblue;
+    border-right: 2px ridge;
+    border-right-color: darkgoldenrod;
+    border-top: 2px ridge;
+    border-top-color: darkgoldenrod;
+    
+}
+
+#op_overview{
+    height: 50%;
+    color: antiquewhite;
+    cursor: pointer;
+}
+
+#op_weap{
+    height: 50%;
+    color: antiquewhite;
+    cursor: pointer;
+}
+
+#options_middle{
+    z-index: 54;
+    position: relative;
+    display: block;
+    height: 5%;
+    min-height: 20px;
+    width: 100%;
+    transition: 50ms;
+    background-color: steelblue;
+    border-right: 2px ridge;
+    border-right-color: darkgoldenrod;
+}
+
+#weap_cont{
+    
+    height: 280px;
+    top: -280px;
+    left: 0px;
+    
+}
+
+.equip_cont{
+    position: absolute;
+    border-right: 2px ridge;
+    border-right-color: darkgoldenrod;
+    width: 100%;
+    background-color: lightsteelblue;
+    
+}
+
+.equip_op{
+    
+    height: 20px;
+    width: 100%;
+    text-align: center;
+    border-top: 1px groove;
+    border-top-color: whitesmoke;
+    border-bottom: 1px solid;
+    border-bottom-color: whitesmoke;
+    cursor: pointer;
+    font-family: Forte;
+    font-size: 11pt;
+    
+}
+
+#op_armor{
+    
+    height: 100%;
+    color: antiquewhite;
+}
+
+#arm_cont{
+    
+    height: 140;
+    top: -140px;
+    left: 0px;
+}
+
+#options_bottom{
+    z-index: 50;
+    position: relative;
+    display: block;
+    height: 5%;
+    min-height: 25px;
+    width: 100%;
+    transition: 50ms;
+    background-color: steelblue;
+    border-right: 2px ridge;
+    border-right-color: darkgoldenrod;
+    border-bottom: 2px ridge;
+    border-bottom-color: darkgoldenrod;
+}
+
+#op_bookmk{
+    height: 100%;
+    color: antiquewhite;
+    cursor: pointer;
+}
+
+.options_info_line{
+    width: 100%;
+    border-bottom: 1px groove;
+    border-top: 1px groove;
+    cursor: pointer;
+    text-align: center;
+    min-height: 20px;
+}
+
+#options_toggle{
+    z-index: 51;
+    position: absolute;
+    height:50px;
+    width: 50px;
+    top: 170px;
+    right: -50px;
+    
+}
+
+#toggle_img{
+    z-index: 52;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+     
+}
+
+#toggle_button{
+    z-index: 0;
+    position: fixed;
+    height:50px;
+    width: 50px;
+    top: 0px;
+    left: 0px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 200ms;
+}
+
+#toggle_image{
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+#options_up_butt{
+    position: absolute;
+    top: 0px;
+    right: -20px;
+    height: 75px;
+    width: 20px;
+    background-color: steelblue;
+    border: 2px ridge;
+    border-color: chocolate;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    cursor: pointer;
+}
+
+#options_down_butt{
+    position: absolute;
+    top: 75px;
+    right: -20px;
+    height: 75px;
+    width: 20px;
+    background-color: steelblue;
+    border: 2px ridge;
+    border-color: chocolate;
+    border-left-style: hidden;
+    border-top-style: hidden;
+    cursor: pointer;
+}
+
+.op_scrl_img{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%
+}
+
+
+/* ------------------------------------------------------ End of Options styles -----------------------------------------------*/
+
+/* ------------------------------------------------------ Message styles -----------------------------------------------*/
+.pop_window{
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0px;
+    top: 0px;
+    margin: auto;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    height: 100vh;
+    width: 100vw;
+}
+
+.pop_cont{
+    position: absolute;
+    top: 150px;
+    right: 0px;
+
+    left: 0px;
+    margin: auto;
+    border 1px solid;
+    border-color: darkcyan;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.2);
+    animation-name: spawn;
+    animation-duration: 0.3s;
+    height: 60%;
+    width: 80%;
+    
+    min-height: 240px;
+    max-height: 562px;
+    max-width: 900px
+}
+
+@keyframes spawn{
+    from{opacity: 0}
+    to {opacity: 1}
+}
+
+.close_butt{
+    position: absolute;
+    color: white;
+    top: 0px;
+    right: 0px;
+    height: 25px;
+    width: 25px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.pop_head{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 20%;
+    width: 100%;
+    
+    background-color: darkred;
+    color: white;
+}
+
+.pop_body{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 80%;
+    width: 100%;
+    background-color: darkcyan;
+    color: white;
+}
+/* ------------------------------------------------------ End of Message styles -----------------------------------------------*/
+
+#selection{
+    z-index: 998;
+    position: fixed;
+    top: 100px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    height: 22px;
+    min-width: 140px;    
+    text-align: center;
+    transition: 300ms;
+    visibility: hidden;
+    opacity: 0;
+    
+}
+
+#selection_header{
+    position: absolute;
+    top: -26px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: 100%;
+    height: 25px;
+    background-color: rgba(250,250,250,0.5);
+    border: 2px ridge;
+    border-color: chocolate;
+    cursor: pointer;
+    visibility: visible;
+    opacity: 1;
+    transition: 300ms;
+    font-family: Forte;
+}
+
+.selectionBx{
+    position: relative;
+    height: 100%;
+    width: 100px;
+    background-color: rgba(250,250,250,0.5);
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align:middle;
+    margin: auto;
+    font-family: Forte;
+}
+
+.selectionBx:hover{
+    background-color: rgb(250,250,250)!important;
+    color: black!important;
+}
+
+#selection_toggle{
+    position: absolute;
+    top:  66px;
+    left: -15px;
+    margin: auto;
+    width: 15px;
+    height: 25px;
+    background-color: rgba(250,250,250,0.5);
+    border: 2px ridge;
+    border-color: chocolate;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: 200ms;
+    font-weight: bolder;
+    font-family: Forte;
+}
+
+.pointer_img{
+    width: 100%;
+    height: 100%;
+}
+
+#disp_select_button{
+    position: fixed;
+    top:  0px;
+    right: -0px;
+    width: 15px;
+    height: 25px;
+    vertical-align: middle;
+    background-color: rgba(250,250,250,0.5);
+    border: 2px ridge;
+    border-color: chocolate;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: 200ms;
+    font-weight: bolder;
+    font-family: Forte;
+}
+
+.header_text{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+}
+
+#listings{
+    position: absolute;
+    top: 180px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: 210px;
+    visibility: visible;
+    transition: 300ms;
+    opacity: 1.0;
+    box-sizing: border-box;
+    
+}
+
+#rare_list_cont{
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+    opacity: 1;
+    transition 300ms;
+}
+
+#rare_list{
+
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 50px;
+    margin: auto;
+    visibility: visible;
+    opacity: 1.0;
+    transition: 300ms;
+}
+
+#names_cont{
+    position: absolute;
+    top:180px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: 200px;
+    height: 46px;
+}
+
+#name_list{
+    position: absolute;
+    top:0px;
+    left: 0px;
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    background-color: white;
+    color: black;
+}
+
+#name_sel_but{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 23px;
+}
+
+#selected_name_display{
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: -200px;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+}
+
+#rare_list_back_but{
+    position: absolute;
+    top: -30px;
+    left: 0px;
+    width: 100%;
+    height: 28px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+#rare_list_back_but:hover{
+    background-color: white!important;
+    color: black!important;
+}
+
+#hi_butt{
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 100px;
+    height: 20px;
+}
+
+#clipboard{
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
+}
+
+#play_button{
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 0px;
+    right: 0px;
+
+}
+
+#playback_img{
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    
+}
+
+#save_button{
+    text-align: center;
+    cursor: pointer;
+    background-color: black;
+    color: skyblue;
+}
+
+#save_button:hover{
+    background-color: rgb(250,250,250)!important;
+    color: darkblue;
+}

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Index</title>
+        <link href="bootstrap/css/bootstrap-grid.css" rel="stylesheet" type="text/css"/>
+        <link href="sitecss.css" rel="stylesheet" type="text/css"/>
+    </head>
+    
+    
+    <body onresize = "reset_info_box()">
+        <div id="background"></div>
+        
+        <div id="message_box" class="pop_window">
+            <div class="pop_cont">
+                <div class="pop_head">
+                    <div class="close_butt" onclick="close_message()">X</div>
+                    <h2 id="pop_header"></h2>
+                </div>
+                <div class="pop_body">
+                    <h2 id="message_bod"></h2>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div id="tree_header" onclick="hide_header()">
+            <div id="tree_header_top"></div>
+            <div id="tree_header_bot"></div>
+        </div>
+        
+        <div id="content">
+        
+        </div>
+        
+        <div id="info_box">
+            
+            <div id="img_prev"></div>
+            <div id="info_img">
+                <img id="lg_img">
+            </div>
+
+            <div id="header">
+                <div id="info_box_header" class="name">Name</div>
+                <div id="info_rare" class="rare">Rarity</div>
+                <div id="preview_lable">Preview</div>
+                <div id="info_close">
+                    <div id="info_close_txt">X</div>
+                </div>
+                
+            </div>
+
+            <div id="page_1" class="info_page" onclick = "toggle_page(1)">
+
+                <div class = "info_line">
+                    <div id="atk_lable" class = "lable bottom-align-text">Attack</div>
+                    <div id="atk_val" class = "value bottom-align-text"></div>
+                </div>
+
+                <div class = "info_line">
+                    <div id="ele_lable" >Thunder</div>
+                    <div id="ele_val" ></div>
+                </div>
+
+                <div id="sharp" class = "sharp_lable">Sharpness</div>
+                <div id="sharp_img_cont" class = "sharp_img_cont">
+                    <img id="sharp_img" class = "sharp_img">
+                </div>
+
+                <div id="sharp_p" class = "sharp_lable">Sharpness + 1</div>
+                <div id="sharp_p_img_cont" class = "sharp_img_cont">
+                    <img id="sharp_p_img" class = "sharp_img">
+                </div>
+
+                <div class = "info_line">
+                    <div id="slot_lable" class= "lable">Slots</div>
+                    <div id="slot_val" class = "value" ></div>
+                </div>
+
+                <div class = "info_line">
+                    <div id="aff_lable" class = "lable">Affinity</div>
+                    <div id="aff_val" class = "value"></div>
+                </div>
+
+                <div id="weap_type" class = "info_line">
+                    <div id="weap_type_lable">Type</div>
+                    <div id="weap_type_val"></div>
+                </div>
+            </div>
+
+            <div id="page_2" class="info_page" onclick = "toggle_page(2)">
+                <div id= "extra_info" class = "info_line">
+                </div>
+                <div id="flavour" class = "text_cont"></div>
+            </div>
+
+
+            <div id="page_3" class="info_page" onclick = "toggle_page(3)">
+
+
+                <div id="up_cat" class="cat_lable">Upgraded From</div>
+                <div id="parent_name" class = "info_line"></div>
+                <div id="parent_lable" class = "info_line"></div>
+                <div class = "info_line">
+                    <div id="up_mat1" class = "mat_lable"></div>
+                    <div id="up_mat1_amt" class = "mat_value"></div>
+                </div>
+
+                <div class = "info_line">
+                    <div id="up_mat2" class = "mat_lable"></div>
+                    <div id="up_mat2_amt" class = "mat_value"></div>
+                </div>
+
+                <div class = "info_line">
+                    <div id="up_mat3" class = "mat_lable"></div>
+                    <div id="up_mat3_amt" class = "mat_value"></div>
+                </div>
+
+                <div class = "info_line">
+                    <div id="up_mat4" class = "mat_lable"></div>
+                    <div id="up_mat4_amt" class = "mat_value"></div>
+                </div>
+
+                <div class = "info_line">
+                    <div id = "up_cost_lable"class = "cost_lable">Cost</div>
+                    <div id="up_cost" class = "cost_value"></div>
+                </div>
+
+            </div>
+
+            <div id="page_4" class="info_page" onclick = "toggle_page(4)">
+
+
+                <div id="cr_cat" class="cat_lable"></div>
+
+                <div class = "info_line">
+                    <div id="cr_mat1" class = "mat_lable"></div>
+                    <div id="cr_mat1_amt" class = "mat_value"></div>
+                </div>
+
+                <div class = "info_line">
+                    <div id="cr_mat2" class = "mat_lable"></div>
+                    <div id="cr_mat2_amt" class = "mat_value"></div>
+                </div>
+
+                <div class = "info_line">
+                    <div id="cr_mat3" class = "mat_lable"></div>
+                    <div id="cr_mat3_amt" class = "mat_value"></div>
+                </div>
+
+                <div class = "info_line">
+                    <div id="cr_mat4" class = "mat_lable"></div>
+                    <div id="cr_mat4_amt" class = "mat_value"></div>
+                </div>
+
+                <div class = "info_line">
+                    <div id="cr_cost_lable" class = "cost_lable">Cost</div>
+                    <div id="cr_cost" class = "cost_value"></div>
+                </div>
+
+                <div class = "info_line">
+                    <div id="shop_price_lable" class = "cost_lable">Shop</div>
+                    <div id="shop_price" class = "cost_value"></div>
+                </div>
+
+            </div>
+
+            <button id = "get_cost">Calculate Cost</button>
+                
+            <div id="main_cost_panel">
+                <div id = "main_cost_panel_header"></div>
+                <div id = "shop_cost_line"></div>
+                <div id = "options_cont">
+                        
+                </div>
+            </div>
+                
+        </div>
+        
+        <div id="toggle_button">
+            <img id="toggle_image" src="Img/toggle.png"/>
+        </div>
+        
+        
+        <div id = "options" class = "col-6 col-xm-5 col-sm-4 col-md-3 col-lg-2">
+            
+            <div id = "options_up_butt">
+                <img class = "op_scrl_img" src="Img/top_pointer.png"/>
+            </div>
+            <div id = "options_down_butt">
+                <img class = "op_scrl_img" src="Img/bottom_pointer.png"/>
+            </div>
+            
+            <div id = "options_toggle" >
+                <img id = toggle_img src="Img/toggle.png"/>
+            </div>
+            
+            <div id= "options_containter">
+                <div id="options_header">
+                    <div id="header_img_cont">
+                        <img class="normal_bg" src = "Img/logo.png"/>
+                    </div>
+                </div>
+                <div id="options_top">
+                    <div id="op_overview" class="options_info_line">Home</div>
+                    <div id="op_weap" class="options_info_line">Weapons</div>
+                </div>
+                <div id="options_middle">
+                    <div id="weap_cont" class="equip_cont">
+                        <div id='gs'  class="equip_op" onclick="option_select('wpn_gs')">Greatsword</div>
+                        <div id='ls'  class="equip_op" onclick="option_select('wpn_ls')">Long Sword</div>
+                        <div id='sns' class="equip_op" onclick="option_select('wpn_sns')">Sword and Shield</div>
+                        <div id='db'  class="equip_op" onclick="option_select('wpn_db')">Dual Blades</div>
+                        <div id='ham' class="equip_op" onclick="option_select('wpn_ham')">Hammer</div>
+                        <div id='hrn' class="equip_op" onclick="option_select('wpn_hrn')">Hunting Horn</div>
+                        <div id='lan' class="equip_op" onclick="option_select('wpn_lan')">Lance</div>
+                        <div id='gl'  class="equip_op" onclick="option_select('wpn_gl')">Gunlance</div>
+                        <div id='sa'  class="equip_op" onclick="option_select('wpn_sa')">Switch Axe</div>
+                        <div id='cb'  class="equip_op" onclick="option_select('wpn_cb')">Charge Blade</div>
+                        <div id='ig'  class="equip_op" onclick="option_select('wpn_ig')">Insect Glaive</div>
+                        <div id='lbg' class="equip_op" onclick="option_select('wpn_lbg')">Light Bowgun</div>
+                        <div id='hbg' class="equip_op" onclick="option_select('wpn_hbg')">Heavy Bowgun</div>
+                        <div id='bow' class="equip_op" onclick="option_select('wpn_bow')">Bow</div>
+
+                    </div>
+                    
+                    <div id="op_armor" class="options_info_line">Armor</div>
+                </div>
+                <div id="options_bottom">
+                    <div id="arm_cont"class="equip_cont">
+                        <div id='lrb' class="equip_op" onclick="option_select('armor_lrb')">Low Rank Bladmaster</div>
+                        <div id='lrg' class="equip_op" onclick="option_select('armor_lrg')">Low Rank Gunner</div>
+                        <div id='hrb' class="equip_op" onclick="option_select('armor_hrb')">High Rank Bladmaster</div>
+                        <div id='hrg' class="equip_op" onclick="option_select('armor_hrg')">High Rank Bladmaster</div>
+                        <div id='grb' class="equip_op" onclick="option_select('armor_grb')">G Rank Bladmaster</div>
+                        <div id='grg' class="equip_op" onclick="option_select('armor_grg')">G Rank Bladmaster Horn</div>
+                        <div id='rel' class="equip_op" onclick="option_select('armor_rlc')">Relic</div>
+
+                    </div>
+                    
+                    <div id="op_bookmk" class="options_info_line">Bookmark</div>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <div id="control">
+            <select id="tree_selection" class="control_list">
+                <option id = "default_option" value="Empty">Select an Option</option>
+            </select>
+            <button id="gen_button" class="control_button">Display</button>
+            <button id="del_button" class="control_button">Delete</button>
+            <div id="min_bar"></div>
+        </div>
+        
+        <div id="selection" class = "select_box col-1 col-xm-1 col-sm-7 col-md-6 col-lg-4">
+            <div id="selection_header">
+                <div id="selection_header_text" class="header_text">Choose an Option</div>
+            </div>
+            <div id="selection_toggle">
+                <img class = "pointer_img" src="Img/right_pointer.png"/>
+            </div>
+            <div id='selection1' class = "selectionBx ">Show Rarity</div>
+            <div id='selection2' class = "selectionBx ">List Name</div>
+            <div id='selection3' class = "selectionBx ">Display Tree</div>
+            
+        </div>
+        <div id="disp_select_button">
+            <img class="pointer_img" src="Img/left_pointer.png"/>
+        </div>
+        
+       
+        <script>
+            var server = "http://localhost:3000";
+        </script>>
+        <script src="sitejs.js"></script>
+        <script src="bootstrap/js/bootstrap.js"></script>
+    </body>
+</html>
