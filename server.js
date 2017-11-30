@@ -34,14 +34,25 @@ var gs_Iron_Sword_Path = [
 
 var gs_Amons_Sword_Path = [
     [{type: 'node', name: "Amon's Sword", rarity: 10, attack: 1296, ele_type: 'Fire', ele_val: '520', num_slot: '---', affinity: '20%', flavour: "A huge sword imbued with a supernatural power. Its burning flame metls evern metal and tears through everything.", upgrade: [], craft: ["100000z", "Balbadd Royal Sword", 3, "M. Tigrex Trigger", 4, "Allfire Stone", 2, "Tigrex Mantle", 1], shop: 'N/A', sharp: "Img/Weap/gs/Amons_Sword/base_sharp.png", p_sharp: "Img/Weap/gs/Amons_Sword/plus_sharp.png", pic: "Img/Weap/gs/Amons_Sword/render.png", parent: [], playstyle: 'Blademaster', extra: ''}]
-];
+];;
+
+var ls_Arbiter_Path = [
+    [{type: 'node', name: "Arbiter", rarity: 4, attack: 429, ele_type: 'Water', ele_val: '250', num_slot: '---', affinity: '0%', flavour: "An elegant brand given to an Eastern warlord. Sunlight ripples on its painted tip.", upgrade: [], craft: ["30000z", "Brutal Horn", 2, "D. Mohran Shell", 3, "Dah'renstone", 3], shop: 'N/A', sharp: "Img/Weap/ls/Arbiter/base_sharp.png", p_sharp: "Img/Weap/ls/Arbiter/plus_sharp.png", pic: "Img/Weap/ls/Arbiter/render.png", parent: [], playstyle: 'Blademaster', extra: 'Defense +10'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Susano-o", rarity: 7, attack: 462, ele_type: 'Water', ele_val: '550', num_slot: '---', affinity: '5%', flavour: "An elegand brand given to an Eastern warlord. Sunlight ripples on its painted surface.", upgrade: ["65000z", "D. Mohran Bloodscale+", 5, "Brutal Horn+", 5, "Elder Dragon Blood", 3, "S. Zinogre Umbrage", 1], craft: [], shop: 'N/A', sharp: "Img/Weap/ls/Susano-o/base_sharp.png", p_sharp: "Img/Weap/ls/Susano-o/plus_sharp.png", pic: "Img/Weap/ls/Susano-o/render.png", parent: ["Arbiter", 0, 0], playstyle: 'Blademaster', extra: 'Defense +25'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Nenekirimaru", rarity: 9, attack: 726, ele_type: 'Water', ele_val: '670', num_slot: '---', affinity: '10%', flavour: "An elegant brand given to an Eastern warlord. Sunlight ripples on its painted tip.", upgrade: ["100000z", "Brutal Biter", 2, "D. Mohran Rockskin", 3, "D. Mohran Allbrace", 4, "Earth Dragongem", 1], craft: [], shop: 'N/A', sharp: "Img/Weap/ls/Nenekirimaru/base_sharp.png", p_sharp: "Img/Weap/ls/Nenekirimaru/plus_sharp.png", pic: "Img/Weap/ls/Nenekirimaru/render.png", parent: ["Susano-o", 0, 2], playstyle: 'Blademaster', extra: 'Defense +35'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Onamuchi", rarity: 10, attack: 792, ele_type: 'Water', ele_val: '720', num_slot: '---', affinity: '10%', flavour: "An elegant brand given to an Eastern warlord. Sunlight ripples on its painted tip.", upgrade: ["130000z", "D. Mohran Heavyscale", 5, "Brutal Biter", 5, "Earth Dragonspire", 1, "Conqueror's Seal", 3], craft: [], shop: 'N/A', sharp: "Img/Weap/ls/Onamuchi/base_sharp.png", p_sharp: "Img/Weap/ls/Onamuchi/plus_sharp.png", pic: "Img/Weap/ls/Onamuchi/render.png", parent: ["Nenekirimaru", 0, 4], playstyle: 'Blademaster', extra: 'Defense +40'}]
+    
+]
 
 //{type: 'node', name: "", rarity: , attack: , ele_type: '', ele_val: '', num_slot: '', affinity: '', flavour: "", upgrade: [], craft: [], shop: '', sharp: "", p_sharp: "", pic: "", parent: [], playstyle: '', extra: ''}
 //{type: 'connector', pic: 'Img/connector_.png'}
 //{type: 'blank'}
 
 var gs_trees = ["Iron_Sword_Path", "Amons_Sword_Path"];
-var ls_trees = [];
+var ls_trees = ["Arbiter_Path"];
 var sns_trees = [];
 var db_trees = [];
 var ham_trees = [];

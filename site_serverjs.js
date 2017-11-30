@@ -513,6 +513,7 @@ function clear_list(){
 
 function option_select (option){
     if(option.indexOf("wpn_") != -1){
+        remove_bkmk();
         var wpn_option = option.replace("wpn_", "");
         init_wpn_list(wpn_option);
         
@@ -542,6 +543,7 @@ function get_wpn_path_list(wpn_type){
 }
 
 function init_wpn_list(selection){
+    update_header(selection);
     if(selection != selected_gear){
         document.getElementById("tree_header_bot").innerHTML = '';
         selected_gear = selection;
@@ -558,7 +560,7 @@ function init_wpn_list(selection){
         reset_prev_selection();
         
         get_wpn_path_list(selection);
-        update_header(selection);
+        //update_header(selection);
     }
 }
 
@@ -1897,6 +1899,7 @@ function save_current_option(input_obj, acq_method){
         var arrText = JSON.stringify(new_list);
         //console.log("local storage empty");
         localStorage.setItem("saved_list", arrText);
+        alert("List saved to local storage.");
     }
     else{
         //console.log("local storage not empty");
@@ -2011,6 +2014,11 @@ function load_local_list(){
 }
 
 function create_type_list(){
+    if(saved_local_list == null || saved_local_list.length == 0){
+        alert("There are no saved lists.");
+        return;
+    }
+    
     var saved_list = saved_local_list.slice();
     
     var nDiv = document.createElement('div');
@@ -2115,8 +2123,18 @@ function populate_saved_list (mode, ele_id, input_arr){
                 nList_Op.id = "type_list_option" + index;
                 nList_Op.value = index + saved_list[index].type;
                 nList_Op.innerHTML = convert_wpn_name(saved_list[index].type);
-                
+                nOp.innerHTML = "Select a Weapon Type";
                 parent.appendChild(nList_Op);
+                
+                if(document.getElementById("target_list") != null){
+                    document.getElementById("target_list").style.visibility = "hidden";
+                    document.getElementById("target_list").style.opacity = "0";
+                }
+                
+                if(document.getElementById("path_list") != null){
+                    document.getElementById("path_list").style.visibility = "hidden";
+                    document.getElementById("path_list").style.opacity = "0";
+                }
             }
             
             break;
@@ -2127,8 +2145,14 @@ function populate_saved_list (mode, ele_id, input_arr){
                 nList_Op.id = "target_list_option" + index;
                 nList_Op.value = index + saved_list[index].name;
                 nList_Op.innerHTML = saved_list[index].name;
-                
+                nOp.innerHTML = "Select a Weapon";
                 parent.appendChild(nList_Op);
+                 
+                if(document.getElementById("path_list") != null){
+                    document.getElementById("path_list").style.visibility = "hidden";
+                    document.getElementById("path_list").style.opacity = "0";
+                }
+                 
             }
             break;
             
@@ -2138,7 +2162,7 @@ function populate_saved_list (mode, ele_id, input_arr){
                 nList_Op.id = "path_lise_option" + index;
                 nList_Op.value = index + saved_list[index].path_name;
                 nList_Op.innerHTML = saved_list[index].path_name;
-                
+                nOp.innerHTML = "Select a Crafting Option";
                 parent.appendChild(nList_Op);
             }
             break;
@@ -2150,6 +2174,17 @@ function bkmk_type_operation(selection_value){
     if(selection_value == "Empty"){
         document.getElementById("bkmk_target_list").innerHTML = "";
         document.getElementById("bkmk_path_list").innerHTML = "";
+        
+        if(document.getElementById("target_list") != null){
+            document.getElementById("target_list").style.visibility = "hidden";
+            document.getElementById("target_list").style.opacity = "0";
+        }
+                
+        if(document.getElementById("path_list") != null){
+            document.getElementById("path_list").style.visibility = "hidden";
+            document.getElementById("path_list").style.opacity = "0";
+        }
+        
         return;
     }
     
@@ -2163,12 +2198,19 @@ function bkmk_type_operation(selection_value){
     
     populate_saved_list("target", "bkmk_target_list", target_list);
     
-    
+    document.getElementById("target_list").style.visibility = "visible";
+    document.getElementById("target_list").style.opacity = "1";
 }
 
 function bkmk_target_operation(selection_value){
     if(selection_value == "Empty"){
         document.getElementById("bkmk_path_list").innerHTML = "";
+        
+        if(document.getElementById("path_list") != null){
+            document.getElementById("path_list").style.visibility = "hidden";
+            document.getElementById("path_list").style.opacity = "0";
+        }
+        
         return;
     }
     
@@ -2181,6 +2223,9 @@ function bkmk_target_operation(selection_value){
     var path_list = saved_local_list[bkmk_data_index[0]].gear_list[target_index].path_list.slice();
     //console.log(path_list);
     populate_saved_list("path", "bkmk_path_list", path_list);
+    
+    document.getElementById("path_list").style.visibility = "visible";
+    document.getElementById("path_list").style.opacity = "1";
 }
 
 function bkmk_path_operation(selection_value){
@@ -2235,7 +2280,13 @@ function display_bkmk_mat_list(mat_obj){
     var ele_stye1 = window.getComputedStyle(element1);
     var attribute1 = parseInt(ele_stye1.getPropertyValue('top'));
     
-    element1.style.top = attribute1 - window_height + 'px';
+    var pan_offset = window_height;
+    
+    if(window_height > 330){
+        pan_offset = 330;
+    }
+    
+    element1.style.top = attribute1 - pan_offset + 'px';
     
     nDiv.id = "bkmk_mat_cont";
     nDiv.className = "bkmk_details_cont";
@@ -2268,8 +2319,19 @@ function display_bkmk_mat_list(mat_obj){
     nDel.onclick = function(){
         delete_bkmk_entry();
     };
+    
+    var nBack = document.createElement('div');
+    nBack.id = "back_sel_entry";
+    nBack.className = "total_infor_line";
+    nBack.innerHTML = "Back";
+    
+    nBack.onclick = function(){
+        element1.removeChild(document.getElementById("bkmk_mat_cont"));
+        element1.style.top = "180px";
+    };
         
     document.getElementById("bkmk_mat_cont").appendChild(nDel);
+    document.getElementById("bkmk_mat_cont").appendChild(nBack);
     
 }
 
@@ -2296,7 +2358,7 @@ function delete_bkmk_entry(){
 }
 
 function reset_bkmk(){
-    remove_bkmk();
+    document.body.removeChild(document.getElementById("bookmark_cont"));
     create_type_list();
 }
 
@@ -2349,7 +2411,13 @@ function convert_wpn_name (wpn_name){
 
 function remove_bkmk(){
     if(document.getElementById("bookmark_cont") != null){
-        document.body.removeChild(document.getElementById("bookmark_cont"));
+        document.getElementById("bookmark_cont").style.visibility = 'hidden';
+        document.getElementById("bookmark_cont").style.opacity = '0';
+        
+        setTimeout(function(){
+            document.body.removeChild(document.getElementById("bookmark_cont"));
+        }, 300);
+        
     }
     
 }
