@@ -1002,8 +1002,10 @@ function expand_option(mat_obj, option_id, target_name){
     nSave.innerHTML = ("Save Current List");
     /*==================================================================SAVE FUNCTION HERE==================================================================*/
     nSave.onclick = function(){
-        alert("Saving " + target_name + " - " + document.getElementById(option_id).innerHTML);
-        console.log(working_arr);
+        //alert("Saving " + target_name + " - " + document.getElementById(option_id).innerHTML);
+        //console.log(working_arr);
+        working_arr.target = target_name;
+        save_current_option(working_arr, document.getElementById(option_id).innerHTML);
     }
     /*==================================================================SAVE FUNCTION HERE==================================================================*/
     document.getElementById("details_container").appendChild(nSave);
@@ -1797,8 +1799,8 @@ document.getElementById("options_down_butt").addEventListener("click", function(
     if((top_value2 + new_ele_top) < 0){
         new_ele_top = -1 * top_value2;
     }
-    console.log(top_value2);
-    console.log(new_ele_top);
+    //console.log(top_value2);
+    //console.log(new_ele_top);
     ele.style.top = new_ele_top + 'px';
 });
 
@@ -1821,6 +1823,13 @@ var first_play = true;
 
 var track_list = ["Audio/Tracks/main_theme.mp3", "Audio/Tracks/mhfu_install_theme.mp3", "Audio/Tracks/shagaru_magala_theme.mp3", "Audio/Tracks/white_fatalis_theme.mp3", "Audio/Tracks/zinogre_theme.mp3"];
 var track_pool = [];
+
+var saved_local_list = {};
+
+var initialize_local_list = false;
+
+var bkmk_data_index = [-1, -1, -1];
+var bkmk_data_id = ["", "", ""];
 
 function play_audio(input){
     
@@ -1853,6 +1862,7 @@ function random_playback(){
     index = Math.random() * (track_pool.length - 0) + 0;
     var output = Math.floor(Number(index));
     page_bgm = new Audio(track_pool[output]);
+    
     page_bgm.addEventListener("ended", function(){
         playback = false;
         setTimeout(function(){
@@ -1863,10 +1873,512 @@ function random_playback(){
             play_audio(1);
         }, 600);
     
+
+    
     });
+    
     track_pool.splice(index, 1);
     //console.log(track_pool);
 }
+
+function save_current_option(input_obj, acq_method){
+    load_local_list();
+    
+    var curr_obj = Object.assign({}, input_obj);
+    var gear_type = selected_gear;
+    var craft_path = acq_method;
+    var target_gear = curr_obj.target;
+    //console.log(curr_obj);
+    //check_saved_list(gear_type, target_gear, craft_path);
+    
+    //If there's no data in local storage, create an entirely new list
+    if (saved_local_list == null){
+        var new_list = [{type: gear_type, gear_list: [{name: target_gear, path_list: [{path_name: craft_path, materials: curr_obj}]}]}];
+        var arrText = JSON.stringify(new_list);
+        //console.log("local storage empty");
+        localStorage.setItem("saved_list", arrText);
+    }
+    else{
+        //console.log("local storage not empty");
+        var index_arr = check_saved_list(gear_type, target_gear, craft_path);
+        var indentifier_arr = [gear_type, target_gear, craft_path];
+        //console.log(index_arr);
+        if(index_arr[2] == -1){
+            append_to_local_list(index_arr, indentifier_arr, curr_obj);
+            
+            var updated_local_list = saved_local_list.slice();
+            var new_arrText = JSON.stringify(updated_local_list);
+            
+            localStorage.setItem("saved_list", new_arrText);
+            
+            alert("List saved to local storage.");
+        }
+        
+        else{
+            alert("List already exists in local storage.");
+        }
+        
+        //console.log(saved_local_list);
+        
+    }
+    
+    
+
+    
+}
+
+function check_saved_list(input_type, input_target, input_path){
+    var result = "none";
+    var loaded_arr = saved_local_list.slice();
+    
+    var type_index = -1;
+    var target_index = -1;
+    var path_index = -1;
+    
+   
+    
+    for(var type_i = 0; type_i < loaded_arr.length; type_i +=1){
+        
+        //console.log(loaded_arr[type_i].type + ", " + input_type);
+        
+        if(loaded_arr[type_i].type == input_type){
+            type_index = type_i;
+            var target_list = loaded_arr[type_index].gear_list.slice();
+             
+            for(var target_i = 0; target_i < target_list.length; target_i += 1){
+                
+                //console.log(target_list[target_i].name + ", " + input_target);
+                
+                if(target_list[target_i].name == input_target){
+                    target_index = target_i;
+                    
+                    var paths = target_list[target_i].path_list.slice();
+                    
+                    for(var path_i = 0; path_i < paths.length; path_i += 1){
+                        if(paths[path_i].path_name == input_path){
+                            path_index = path_i;
+                            
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+           
+    return [type_index, target_index, path_index];
+}
+
+function append_to_local_list (index_arr, identifier_arr, mat_obj){
+    var list_index = index_arr.slice();
+    var list_id = identifier_arr.slice();
+    var work_obj = Object.assign({}, mat_obj);
+    
+    var current_list = saved_local_list.slice();
+    
+    if(list_index[0] == -1){
+        var new_type = {type: list_id[0], gear_list: [{name: list_id[1], path_list: [{path_name: list_id[2], materials: work_obj}]}]};
+        current_list.push(new_type);
+    }
+    else{
+        if(list_index[1] == -1){
+            var new_target = {name: list_id[1], path_list: [{path_name: list_id[2], materials: work_obj}]};
+            current_list[list_index[0]].gear_list.push(new_target);
+        }
+        else{
+            var new_path = {path_name: list_id[2], materials: work_obj};
+            current_list[list_index[0]].gear_list[list_index[1]].path_list.push(new_path);
+        }
+    }
+    
+    saved_local_list = current_list.slice();
+}
+
+function load_local_list(){
+    var arrText = localStorage.getItem("saved_list");
+    var arr = JSON.parse(arrText);
+    
+    if(arr != null){
+        saved_local_list = arr.slice();
+    }
+    else{
+        saved_local_list = arr;
+    }
+    
+    //console.log(arr);
+    //display_arr_elements();
+    
+}
+
+function create_type_list(){
+    var saved_list = saved_local_list.slice();
+    
+    var nDiv = document.createElement('div');
+    
+    var nType = document.createElement('div');
+    var nTarget = document.createElement('div');
+    var nPath = document.createElement('div');
+    
+    var nType_L = document.createElement('select');
+    var nType_B = document.createElement('button');
+    
+    var nTarget_L = document.createElement('select');
+    var nTarget_B = document.createElement('button');
+    
+    var nPath_L = document.createElement('select');
+    var nPath_B = document.createElement('button');
+    
+    nDiv.id = "bookmark_cont";
+    
+    nType.id = "type_list";
+    nType.className = "category_container";
+    nType_L.id = "bkmk_type_list";
+    nType_L.className = "category_list";
+    nType_B.id = "bkmk_type_button";
+    nType_B.className = "category_button";
+    nType_B.innerHTML = "Select";    
+    
+    nTarget.id = "target_list";
+    nTarget.className = "category_container";
+    nTarget_L.id = "bkmk_target_list";
+    nTarget_L.className = "category_list";
+    nTarget_B.id = "bkmk_target_button";
+    nTarget_B.className = "category_button";
+    nTarget_B.innerHTML = "Select";
+    
+    nPath.id = "path_list";
+    nPath.className = "category_container";
+    nPath_L.id = "bkmk_path_list";
+    nPath_L.className = "category_list";
+    nPath_B.id = "bkmk_path_button";
+    nPath_B.className = "category_button";
+    nPath_B.innerHTML = "Display";
+    
+    
+    nType.appendChild(nType_L);
+    nType.appendChild(nType_B);
+    
+    nTarget.appendChild(nTarget_L);
+    nTarget.appendChild(nTarget_B);
+    
+    nPath.appendChild(nPath_L);
+    nPath.appendChild(nPath_B);
+    
+    nDiv.appendChild(nType);
+    nDiv.appendChild(nTarget);
+    nDiv.appendChild(nPath);
+    
+    document.body.appendChild(nDiv);
+    
+    populate_saved_list("type", nType_L.id, saved_list);
+    
+    nType_B.onclick = function(){
+        check_bkmk();
+        bkmk_type_operation(nType_L.value);
+    };
+    
+    nTarget_B.onclick = function(){
+        check_bkmk();
+        bkmk_target_operation(nTarget_L.value);
+    };
+    
+    nPath_B.onclick = function(){
+        check_bkmk();
+        bkmk_path_operation(nPath_L.value);
+    }
+}
+
+function check_bkmk(){
+    if(document.getElementById("bkmk_mat_cont") != null){
+        document.getElementById("bookmark_cont").removeChild(document.getElementById("bkmk_mat_cont"));
+        document.getElementById("bookmark_cont").style.top = "180px";
+    }
+}
+
+function populate_saved_list (mode, ele_id, input_arr){
+    var saved_list = input_arr.slice();
+    var nOp = document.createElement('option');
+    
+    var parent = document.getElementById(ele_id);
+    parent.innerHTML = "";
+    nOp.id = "list_default";
+    nOp.value = "Empty";
+    nOp.innerHTML = "Select an Option";
+    
+    parent.appendChild(nOp);
+    
+    switch(mode){
+        case "type":
+            
+            for(var index = 0; index < saved_list.length; index += 1){
+                var nList_Op = document.createElement('option')
+                nList_Op.id = "type_list_option" + index;
+                nList_Op.value = index + saved_list[index].type;
+                nList_Op.innerHTML = convert_wpn_name(saved_list[index].type);
+                
+                parent.appendChild(nList_Op);
+            }
+            
+            break;
+            
+        case "target":
+             for(var index = 0; index < saved_list.length; index += 1){
+                var nList_Op = document.createElement('option')
+                nList_Op.id = "target_list_option" + index;
+                nList_Op.value = index + saved_list[index].name;
+                nList_Op.innerHTML = saved_list[index].name;
+                
+                parent.appendChild(nList_Op);
+            }
+            break;
+            
+        case "path":
+            for(var index = 0; index < saved_list.length; index += 1){
+                var nList_Op = document.createElement('option')
+                nList_Op.id = "path_lise_option" + index;
+                nList_Op.value = index + saved_list[index].path_name;
+                nList_Op.innerHTML = saved_list[index].path_name;
+                
+                parent.appendChild(nList_Op);
+            }
+            break;
+    }
+    
+}
+
+function bkmk_type_operation(selection_value){
+    if(selection_value == "Empty"){
+        document.getElementById("bkmk_target_list").innerHTML = "";
+        document.getElementById("bkmk_path_list").innerHTML = "";
+        return;
+    }
+    
+    var type_index = parseInt(selection_value);
+    var type_val = selection_value.slice(1);
+    
+    bkmk_data_index[0] = type_index;
+    bkmk_data_id[0] = type_val;
+    
+    var target_list = saved_local_list[type_index].gear_list.slice();
+    
+    populate_saved_list("target", "bkmk_target_list", target_list);
+    
+    
+}
+
+function bkmk_target_operation(selection_value){
+    if(selection_value == "Empty"){
+        document.getElementById("bkmk_path_list").innerHTML = "";
+        return;
+    }
+    
+    var target_index = parseInt(selection_value);
+    var target_val = selection_value.slice(1);
+    
+    bkmk_data_index[1] = target_index;
+    bkmk_data_id[1] =   target_val;
+    
+    var path_list = saved_local_list[bkmk_data_index[0]].gear_list[target_index].path_list.slice();
+    //console.log(path_list);
+    populate_saved_list("path", "bkmk_path_list", path_list);
+}
+
+function bkmk_path_operation(selection_value){
+    
+    if(selection_value == "Empty"){
+        
+        return;
+    }
+    
+    var path_index = parseInt(selection_value);
+    var path_val = selection_value.slice(1);
+    
+    var saved_list = saved_local_list.slice();
+    
+    bkmk_data_index[2] = path_index;
+    bkmk_data_id[2] =   path_val;
+    
+    var mat_obj = Object.assign({}, saved_list[bkmk_data_index[0]].gear_list[bkmk_data_index[1]].path_list[bkmk_data_index[2]].materials);
+    //console.log(mat_obj);
+    
+    display_bkmk_mat_list(mat_obj);
+}
+
+function display_bkmk_mat_list(mat_obj){
+    
+    var materials = Object.assign({}, mat_obj);
+    var key_list = Object.keys(materials);
+    
+    //console.log(materials);
+    
+    if (key_list.indexOf("Base") != -1){
+        key_list.splice(key_list.indexOf("Base"), 1);
+    }
+    
+    if(key_list.indexOf("Method") != -1){
+        key_list.splice(key_list.indexOf("Method"), 1);
+    }
+    
+    if(key_list.indexOf("target") != -1){
+        key_list.splice(key_list.indexOf("target"), 1);
+    }
+    
+    if(document.getElementById("bkmk_mat_cont") != null){
+        document.getElementById("bookmark_cont").removeChild(document.getElementById("bkmk_mat_cont"));
+    }
+    
+    var window_height = ((key_list.length) * 21) + 32;
+    
+    var nDiv = document.createElement('div');
+    
+    var element1 = document.getElementById("bookmark_cont");
+    var ele_stye1 = window.getComputedStyle(element1);
+    var attribute1 = parseInt(ele_stye1.getPropertyValue('top'));
+    
+    element1.style.top = attribute1 - window_height + 'px';
+    
+    nDiv.id = "bkmk_mat_cont";
+    nDiv.className = "bkmk_details_cont";
+    nDiv.style.height = window_height + 'px';
+    nDiv.style.bottom = - window_height - 25 + 'px';
+    
+    document.getElementById("bookmark_cont").appendChild(nDiv);
+    
+    var op_head = document.createElement('div');
+    op_head.className = "bkmk_details_header";
+    op_head.id = "bkmk_material_header";
+    document.getElementById("bkmk_mat_cont").appendChild(op_head);
+    //var header_string = working_arr.Method.slice(0,1) + ": " + working_arr.Base + " Total Cost";
+    op_head.innerHTML = "Total Cost";
+    
+    key_list.sort();
+    for (var index = 0; index < key_list.length; index++){
+        if(key_list[index] != "Cost"){
+            add_mat(key_list[index], materials[key_list[index]], "bkmk_mat_cont");
+        }
+    }
+    
+    add_mat("Cost", materials["Cost"], "bkmk_mat_cont");
+    
+    var nDel = document.createElement('div');
+    nDel.id = "del_sel_entry";
+    nDel.className = "total_info_line";
+    nDel.innerHTML = "Delete Entry";
+    
+    nDel.onclick = function(){
+        delete_bkmk_entry();
+    };
+        
+    document.getElementById("bkmk_mat_cont").appendChild(nDel);
+    
+}
+
+function delete_bkmk_entry(){
+    var work_arr = saved_local_list.slice();
+    var bkmk_entry_index = bkmk_data_index;
+    
+    work_arr[bkmk_entry_index[0]].gear_list[bkmk_entry_index[1]].path_list.splice(bkmk_entry_index[2], 1);
+    
+    if(work_arr[bkmk_entry_index[0]].gear_list[bkmk_entry_index[1]].path_list.length == 0){
+        work_arr[bkmk_entry_index[0]].gear_list.splice(bkmk_entry_index[1], 1);
+    }
+    
+    if(work_arr[bkmk_entry_index[0]].gear_list.length == 0){
+        work_arr.splice(bkmk_entry_index[0], 1);
+    }
+    
+    saved_local_list = work_arr.slice();
+    
+    var new_arrText = JSON.stringify(work_arr);
+    localStorage.setItem("saved_list", new_arrText);
+    load_local_list();
+    reset_bkmk();
+}
+
+function reset_bkmk(){
+    remove_bkmk();
+    create_type_list();
+}
+
+function convert_wpn_name (wpn_name){
+    switch(wpn_name){
+        case 'gs':
+            return "Great Sword";
+            break;
+        case 'ls':
+            return "Long Sword";
+            break;
+        case 'sns':
+            return "Sword and Shield";
+            break;
+        case 'db':
+            return "Dual Blades";
+            break;
+        case 'ham':
+            return "Hamme";
+            break;
+        case 'hrn':
+            return "Hunting Horn";
+            break;
+        case 'lan':
+            return "Lance";
+            break;
+        case 'gl':
+            return "Gun Lance";
+            break;
+        case 'sa':
+            return "Switch Axe";
+            break;
+        case 'cb':
+            return "Charge Blade";
+            break;
+        case 'ig':
+            return "Insect Glaive";
+            break;
+        case 'lbg':
+            return "Light Bow Gun";
+            break;
+        case 'hbg':
+            return "Heavy Bow Gun";
+            break;
+        case 'bow':
+            return "Bow";
+            break;
+    }
+}
+
+function remove_bkmk(){
+    if(document.getElementById("bookmark_cont") != null){
+        document.body.removeChild(document.getElementById("bookmark_cont"));
+    }
+    
+}
+
+document.getElementById("op_bookmk").addEventListener("click", function(){
+    load_local_list();
+    selected_gear = "";
+    clear_list();
+    delete_tree();
+    delete_listings();
+    delete_name_list();
+    set_selection(-1);
+    remove_info_box();
+    selected_node = -1;
+    document.getElementById("tree_header_top").innerHTML = "";
+    hide_header();
+    hide_controls();
+    document.getElementById("control").style.visibility = 'hidden';
+    document.getElementById("control").style.opacity = '0';
+    document.getElementById("selection").style.visibility = 'hidden';
+    document.getElementById("selection").style.opacity = '0';
+
+    if(document.getElementById("bookmark_cont") == null){
+        create_type_list();
+    }
+    
+
+    
+});
 
 document.getElementById("play_button").addEventListener("click", function(){
     
@@ -1891,6 +2403,12 @@ document.getElementById("play_button").addEventListener("click", function(){
     }
 });
 
+if(!initialize_local_list){
+    load_local_list();
+    initialize_local_list = true;
+    //alert("list loaded: " + saved_local_list);
+}
+
 page_bgm.addEventListener("ended", function(){
     playback = false;
     setTimeout(function(){
@@ -1902,3 +2420,4 @@ page_bgm.addEventListener("ended", function(){
     }, 600);
     
 });
+
