@@ -558,6 +558,7 @@ function init_wpn_list(selection){
         document.getElementById("selection").style.visibility = "hidden";
         document.getElementById("selection").style.opacity = "0";
         reset_prev_selection();
+        hide_overview();
         
         get_wpn_path_list(selection);
         //update_header(selection);
@@ -2016,7 +2017,7 @@ function load_local_list(){
 function create_type_list(){
     if(saved_local_list == null || saved_local_list.length == 0){
         alert("There are no saved lists.");
-        return;
+        
     }
     
     var saved_list = saved_local_list.slice();
@@ -2439,6 +2440,7 @@ document.getElementById("op_bookmk").addEventListener("click", function(){
     document.getElementById("control").style.opacity = '0';
     document.getElementById("selection").style.visibility = 'hidden';
     document.getElementById("selection").style.opacity = '0';
+    hide_overview();
 
     if(document.getElementById("bookmark_cont") == null){
         create_type_list();
@@ -2489,3 +2491,134 @@ page_bgm.addEventListener("ended", function(){
     
 });
 
+function gear_hover_operation(gear_name){
+    if(document.getElementById("tree_header_top").innerHTML != "OVERVIEW"){
+        document.getElementById("tree_header_top").innerHTML = "OVERVIEW"
+    }
+    
+    if(document.getElementById("tree_header_bot").innerHTML != gear_name){
+       document.getElementById("tree_header_bot").innerHTML = gear_name;
+    }
+    
+    display_tree_header();
+}
+
+function hide_overview(){
+    document.getElementById("wpn_icon_cont").style.visibility = 'hidden';
+    document.getElementById("wpn_icon_cont").style.opacity = '0';
+    
+    document.getElementById("gear_info").style.top = "-500%";
+}
+
+function disp_gear_overview(gear_name){
+    document.getElementById("wpn_icon_cont").style.visibility = "hidden";
+    document.getElementById("wpn_icon_cont").style.opacity = "0";
+    
+    gear_info_index = gear_info_names.indexOf(gear_name);
+    document.getElementById("info_title_text").innerHTML = gear_info_obj[gear_name][0];
+    document.getElementById("info_body").innerHTML = gear_info_obj[gear_name][1];
+    
+    document.getElementById("info_gear_img").src="Img/Icons/" + gear_name +"_Icon.png";
+    document.getElementById("gear_info").style.top = "100px";
+    
+    var div_coor = Object.assign({}, document.getElementById("gear_info"));
+    window.scrollTo(div_coor.x, div_coor.y);
+
+}
+
+function remove_gear_info(){
+    document.getElementById("gear_info").style.top = "-500%";
+    
+    document.getElementById("wpn_icon_cont").style.visibility = "visible";
+    document.getElementById("wpn_icon_cont").style.opacity = "1";
+}
+
+function flash_gear_info_page(gear_name){
+    document.getElementById("gear_info").style.visibility = "hidden";
+    document.getElementById("gear_info").style.opacity = '0';
+    setTimeout(function(){
+        document.getElementById("gear_info").style.visibility = "visible";
+        document.getElementById("gear_info").style.opacity = '1';
+        disp_gear_overview(gear_name);
+    }, 200);
+}
+
+document.getElementById("op_overview").addEventListener("click", function(){
+    selected_gear = "";
+    clear_list();
+    delete_tree();
+    delete_listings();
+    delete_name_list();
+    set_selection(-1);
+    remove_info_box();
+    selected_node = -1;
+    document.getElementById("tree_header_top").innerHTML = "";
+    hide_header();
+    hide_controls();
+    remove_bkmk();
+    document.getElementById("control").style.visibility = 'hidden';
+    document.getElementById("control").style.opacity = '0';
+    document.getElementById("selection").style.visibility = 'hidden';
+    document.getElementById("selection").style.opacity = '0';
+    
+    document.getElementById("options").style.visibility = 'hidden';
+    document.getElementById("options").style.opacity = '0';
+
+
+    
+    document.getElementById("toggle_button").style.visibility = 'visible';
+    document.getElementById("toggle_button").style.opacity = '1';
+    
+    document.getElementById("wpn_icon_cont").style.visibility = 'visible';
+    document.getElementById("wpn_icon_cont").style.opacity = '1';
+});
+
+document.getElementById("back_info").addEventListener("click", function(){
+    remove_gear_info();
+});
+
+document.getElementById("prev_info").addEventListener("click", function(){
+    var curr_page_index = gear_info_index;
+    curr_page_index -= 1;
+    if(curr_page_index < 0){
+        curr_page_index = gear_info_names.length - 1;
+    }
+    
+    var new_page = gear_info_names[curr_page_index];
+    
+    flash_gear_info_page(new_page);
+    
+    
+    
+});
+
+document.getElementById("next_info").addEventListener("click", function(){
+    var curr_page_index = gear_info_index;
+    curr_page_index += 1;
+    if(curr_page_index >= gear_info_names.length){
+        curr_page_index = 0;
+    }
+    
+    var new_page = gear_info_names[curr_page_index];
+    flash_gear_info_page(new_page);
+   
+    
+});
+
+var gear_info_index = -1;
+var gear_info_names = ["GS", "LS", "SNS", "DB", "HAM", "HRN", "LAN", "GL", "SA", "CB", "IG", "LBG", "HBG", "BOW"];
+var gear_info_obj = {
+    GS: ["Great Sword", "As a weapon which has its own depth of usage and requires a certain amount of training to be able to master and fully use, the Great Sword is not just any big pointy stick.  It can be charged up for a heavy attack. It can also block with its blade, serving as a shield with slightly better protection than the Sword and Shield, as well as a fast-draw shielding ability. This shielding ability comes with a downfall, however, as each time you shield an attack the sword will lose sharpness."], 
+    LS: ["Long Sword", "Having moderately high attack power combined with mobility comes at the cost of not being able to block. The hunter must be aggressive enough to know when and where to attack, while being cautious enough to know when to cease attacks and dodge. The Long Sword has a short delay after most attacks, but balances this with a back-hop/wide swing attack which can be performed after any attack, allowing fluidity. The hunter must take some risks, in order to fill up his Spirit Gauge, which, once full, increases damage dealt and enables the sword to unleash a powerful Spirit Combo."],
+    SNS: ["Sword and Shield", "The Sword and Shield is a weapon uses speed and agility to inflict long combinations of status-inflicting attacks quickly. A hunter is able to perform a rolling dodge, can run normally with the weapon drawn, and has the ability to suppress weak attacks with the shield while blocking. The hunter can also use an item while the sword is drawn. While they are the fastest and most agile weapon, Swords and Shields typically have very weak raw damage. To compensate for this, the SnS attacks quickly and many of the weapons in this category are imbued with powerful elemental properties or cause Poison, Sleep or Paralysis. This makes them one of the best melee weapon to induce Status Effects."],
+    DB: ["Dual Blades", "Dual Blades are most notable for their chain attack method of dealing large amounts of damage over time, overwhelming targets with a flurry of attacks. Dual Blades allow hunters to enter Demon Mode, drastically increasing their offensive capabilities at the cost of a constantly draining stamina bar while demon mode is active."],
+    HAM: ["Hammer", "Staunch and resilient, the hammer is perhaps the first representative weapon-of-choice to dictate pure, unadulterated damage directly to the target. In this field, the weapon's typical attributes allow a hunter to run openly with the weapon drawn, perform short-range, almost bunting and swing attacks with their opening attacks, and the ability to charge up different types of swings while moving. As the hammer class has immense damage potential, and indeed, some of the outright highest raw damage in the game, the weapon boasts no defensive or evasive capabilities aside from the standard rolling dodge maneuver. A sense of timing is needed to master the weapon's true damaging traits: releasing charged swings while timing and aiming diligently against the foe's movements. No easy task. Further, hammers have a decent variance of elemental attributes, and are useful for racking up elemental damage. It's not possible to cut tails with a hammer, but it is easy to break heads and other body parts."],
+    HRN: ["Hunting Horn", "The Hunting Horn combines both offense and support into on blunt package. It holds the ability to maintain a high sustained damage to its target. The hunting horn's true power, however, lies in its ability to provide the party with a multitude of buffs. Each Horn has a different set of three color specific notes. These notes can be combined in various ways to create various effects, which mimic items such as Demondrug and Psychoserum, among others."], 
+    LAN: ["Lance", "Lances are long weapons that can strike from a distance. The lance is always accompanied by a large shield which generally grants a powerful defense against most attacks. Although slow and difficult to travel with, the weapon's damage output can be impressive. Lances have different moves, such as the upstab, forward stab, and charging attack. It is one of the only weapons that can attack and block at the same time."],
+    GL: ["Gunlance", "Gunlances, are long, piercing weapons with a mechanism inside which can fire an explosive round. This is called Shelling. Unlike Bowguns, the Gunlance cannot fire over distances. The Shelling ability can only be used from close range and reduces the weapon's sharpness with each use. The use of the weapon is largely similar to the original Lance. Unlike ranged weapons, Gunlances come with preset, unlimited ammo. They are able to charge up, indicated by the radiating energy at the tip of the lance, and dish out a strong explosive attack referred to as Wyvern's Fire."], 
+    SA: ["Switch Axe", "A powerful melee weapon, capable of such momentum that the hunter swinging it is dragged around by the momentum of each swing. Described as a marvel of technology capable of phantasmagorical might. The switch axe has transformation capabilities, with one blade shifting while being sheathed as well as sliding to a different position to change its attack style. In its secondary form, the weapon behaves far differently from its standard variation and uses a phial of specialized coating to add certain effects to the weapon. The weapon is also able to overload this phial, ending in a concentrated burst."], 
+    CB: ["Charge Blade", "Charge Blade is somewhat similar to the Switch Axe, with the ability to switch between two different weapon modes: the Sword Mode and the Axe Mode. Sword Mode comes with a shield for blocking, is relatively quick, and is primarily used for charging up energy. Once it has been charged enough, it can be stored in the shield, and the hunter can use powerful explosive attacks in the slower but stronger Axe Mode. The shield itself can be charged for a damage bonus, and enables the destructive Super Amped Element Discharge (colloquially referred to as the Ultra Burst)."],
+    IG: ["Insect Glaive", "Insect Glaive also known as Insect Taming Staff, Insect Operating Rod, Neopteron Handler, or Insect Rod) is a double-ended rod capable of quick, fluid attacks similar to the Long Sword. It also allows the hunter to jump at any time in a pole vaulting fashion. The rod is also capable of summoning a Kinsect to attack monsters. The hunter can either freely send out the Kinsect on a direct flight, or first shoot out a pheromone bullet at the target that works as a beacon for the Kinsect. This allows the insect to home in. When the Kinsect successfully hits an enemy, it will drain out an essence which varies in color and attribute, depending on which part of the monster it hits. This will then power up the hunter when the Kinsect is called back. The Kinsect is always found clinging on the right arm of the hunter when it's not in flight."],
+    LBG: ["Ligh Bowgun", "The Light Bowgun is a bowgun that allows hunters to move around at a normal running speed. Hunters can unsheathe and sheathe it faster than a heavy bowgun due to the clear weight difference. Due to its compact size, it does not come with as much firepower as its larger counterpart. Most hunters prefer light bowguns because of the fast movement and reloading speed. Light bowguns are usually easy to make and master. It has the ability to rapid fire certain ammunition types depending on each individual gun, and is best used for elemantal shots."], 
+    HBG: ["Heavy Bowgun", "The Heavy Bowgun is the ranged weapon of choice for those who wish to have as much firepower as they can, while still maintaining some distance. While much slower than their Light Bowgun cousins, they are the only ranged weapon that allows a shield to be attached, giving them guardING capabilities. For an experienced gunner, this is more of a restraint since you can only attach a power barrel OR a shield."], 
+    BOW: ["Bow", "The Bow is one of the most tactical weapons. Although it is very versatile and has a wide range of options, it is not the weapon of choice for an amateur but rather a weapon of choice for a skilled hunter. The Bow is a naturally fast weapon. When using a Bow, a common tactic is hit and run. Also, using the bow requires the knowledge of the monsters' weak points and elemental weaknesses in order to ease the task of taking it down. This is, of course, not a problem; as there are a large number of elemental Bows at the hunter's disposal. Last but not least, the use of charge levels and coatings allow a large set of options. A hunters choice of what charges and coatings he or she is going to use is very important."]};

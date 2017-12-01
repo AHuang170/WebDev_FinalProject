@@ -10,6 +10,81 @@
     <body onresize = "reset_info_box()">
         <div id="background"></div>
         
+        <div id="wpn_icon_cont", class="col-6 col-xm-5 col-sm-4 col-md-4 col-lg-4">
+            
+            <div id="gs_icon" class="wpn_icon" onmouseover="gear_hover_operation('Great Sword')" onclick="disp_gear_overview('GS')">
+                <img class="wpn_icon_img" src="Img/Icons/GS_Icon.png"/>
+            </div>
+            
+            <div id="ls_icon" class="wpn_icon" onmouseover="gear_hover_operation('Long Sword')" onclick="disp_gear_overview('LS')">
+                <img class="wpn_icon_img" src="Img/Icons/LS_Icon.png"/>
+            </div>
+            
+            <div id="sns_icon" class="wpn_icon" onmouseover="gear_hover_operation('Sword and Shield')" onclick="disp_gear_overview('SNS')">
+                <img class="wpn_icon_img" src="Img/Icons/SNS_Icon.png"/>
+            </div>
+            
+            <div id="db_icon" class="wpn_icon" onmouseover="gear_hover_operation('Dual Blades')" onclick="disp_gear_overview('DB')">
+                <img class="wpn_icon_img" src="Img/Icons/DB_Icon.png"/>
+            </div>
+            
+            <div id="ham_icon" class="wpn_icon" onmouseover="gear_hover_operation('Hammer')" onclick="disp_gear_overview('HAM')">
+                <img class="wpn_icon_img" src="Img/Icons/HAM_Icon.png"/>
+            </div>
+            
+            <div id="hrn_icon" class="wpn_icon" onmouseover="gear_hover_operation('Hunting Horn')" onclick="disp_gear_overview('HRN')">
+                <img class="wpn_icon_img" src="Img/Icons/HRN_Icon.png"/>
+            </div>
+            
+            <div id="lan_icon" class="wpn_icon" onmouseover="gear_hover_operation('Lance')" onclick="disp_gear_overview('LAN')">
+                <img class="wpn_icon_img" src="Img/Icons/LAN_Icon.png"/>
+            </div>
+            
+            <div id="gl_icon" class="wpn_icon" onmouseover="gear_hover_operation('Gunlance')" onclick="disp_gear_overview('GL')">
+                <img class="wpn_icon_img" src="Img/Icons/GL_Icon.png"/>
+            </div>
+            
+            <div id="sa_icon" class="wpn_icon" onmouseover="gear_hover_operation('Switch Axe')" onclick="disp_gear_overview('SA')">
+                <img class="wpn_icon_img" src="Img/Icons/SA_Icon.png"/>
+            </div>
+            
+            <div id="cb_icon" class="wpn_icon" onmouseover="gear_hover_operation('Charge Blade')" onclick="disp_gear_overview('CB')">
+                <img class="wpn_icon_img" src="Img/Icons/CB_Icon.png"/>
+            </div>
+            
+            <div id="ig_icon" class="wpn_icon" onmouseover="gear_hover_operation('Insect Glaive')" onclick="disp_gear_overview('IG')">
+                <img class="wpn_icon_img" src="Img/Icons/IG_Icon.png"/>
+            </div>
+            
+            <div id="lbg_icon" class="wpn_icon" onmouseover="gear_hover_operation('Light Bowgun')" onclick="disp_gear_overview('LBG')">
+                <img class="wpn_icon_img" src="Img/Icons/LBG_Icon.png"/>
+            </div>
+            
+            <div id="hbg_icon" class="wpn_icon" onmouseover="gear_hover_operation('Heavy Bowgun')" onclick="disp_gear_overview('HBG')">
+                <img class="wpn_icon_img" src="Img/Icons/HBG_Icon.png"/>
+            </div>
+            
+            <div id="bow_icon" class="wpn_icon" onmouseover="gear_hover_operation('Bow')" onclick="disp_gear_overview('BOW')">
+                <img class="wpn_icon_img" src="Img/Icons/BOW_Icon.png"/>
+            </div>
+            
+        </div>
+        
+        <div id="gear_info">
+            <div id="info_gear_icon" class="info_wpn_icon_cont">
+                <img id="info_gear_img" class="wpn_icon_img"/>
+            </div>
+            <div id="info_title">
+                <div id="info_title_text"></div>
+            </div>
+            <div id="info_body"></div>
+            
+            <div id="prev_info"></div>
+            <div id="next_info"></div>
+            <div id="back_info"></div>
+            
+        </div>
+        
         <div id="message_box" class="pop_window">
             <div class="pop_cont">
                 <div class="pop_head">
@@ -191,7 +266,7 @@
             </div>
             
             <div id = "options_toggle" >
-                <img id = toggle_img src="Img/toggle.png"/>
+                <img id = toggle_img src="Img/toggle2.png"/>
             </div>
             
             <div id= "options_containter">
@@ -201,7 +276,7 @@
                     </div>
                 </div>
                 <div id="options_top">
-                    <div id="op_overview" class="options_info_line">Home</div>
+                    <div id="op_overview" class="options_info_line">Overview</div>
                     <div id="op_weap" class="options_info_line">Weapons</div>
                 </div>
                 <div id="options_middle">

@@ -1005,7 +1005,7 @@ body{
     position: absolute;
     height:50px;
     width: 50px;
-    top: 170px;
+    bottom: 0px;
     right: -50px;
     
 }
@@ -1026,7 +1026,7 @@ body{
     position: fixed;
     height:50px;
     width: 50px;
-    top: 0px;
+    bottom: 0px;
     left: 0px;
     visibility: hidden;
     opacity: 0;
@@ -1183,8 +1183,8 @@ body{
     border: 2px ridge;
     border-color: chocolate;
     cursor: pointer;
-    visibility: visible;
-    opacity: 1;
+    visibility: hidden;
+    opacity: 0;
     transition: 300ms;
     font-family: Forte;
 }
@@ -1523,4 +1523,134 @@ body{
 #back_sel_entry:hover{
     background-color: rgb(250,250,250)!important;
     color: darkblue;
+}
+/* ------------------------------------------------------ Start of Overview styles -----------------------------------------------*/
+
+#wpn_icon_cont{
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 200ms;
+}
+
+.wpn_icon{
+
+    position: relative;
+    display: inline-block;
+    height: 75px;
+    width: 75px;
+    border-radius: 5px;
+    background-color: rgba(58,127,255,0.5);
+    cursor: pointer;
+}
+
+.wpn_icon_img{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+#gear_info{
+    
+    position: absolute;
+    top: -500%;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width:  90%;
+    height: 75%;
+    background-color: gainsboro;
+    min-width: 250px;
+    min-height: 500px;
+    transition: 300ms;
+    
+    border: 5px ridge;
+    border-color: darkgray;
+}
+
+.info_wpn_icon_cont{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 75px;
+    width: 75px;
+    border: 2px ridge;
+    border-color: chocolate;
+}
+
+#info_title{
+    
+    position: absolute;
+    top: 0px;
+    left: 77px;
+    height: 75px;
+    width: calc(100% - 79px);
+    border-bottom: 2px solid;
+    border-bottom-color: darkred;
+}
+
+#info_title_text{
+    position: absolute;
+    top: 15%;
+    left: 0px;
+    height: 30%;
+    width: 100%;
+    text-align: center;
+    font-family: forte;
+    font-size: 20pt;
+}
+
+#info_body{
+    position: absolute;
+    top:77px;
+    left: 2px;
+    height: calc(100% - 100px);
+    width: calc(100% - 4px);
+    background-color: rgba(150,150,150,0.5);
+    font-family: forte;
+    font-size: 20pt;
+    text-align: center;
+    overflow: auto;
+}
+
+#prev_info{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 20px;
+    width: 30px;
+    background-image: url(Img/left_pointer.png);
+    background-size: contain;
+    cursor: pointer;
+}
+
+#next_info{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 20px;
+    width: 30px;
+    background-image: url(Img/right_pointer.png);
+    background-size: contain;
+    cursor: pointer;
+}
+
+#back_info{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    margin: auto;
+    height: 20px;
+    width: 30px;
+    background-image: url(Img/top_pointer.png);
+    background-size: contain;
+    cursor: pointer;
 }
