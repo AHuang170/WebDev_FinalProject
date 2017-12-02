@@ -1363,6 +1363,7 @@ body{
 }
 
 #play_button{
+    z-index: 1;
     position: fixed;
     width: 60px;
     height: 60px;
@@ -1558,7 +1559,7 @@ body{
 }
 
 #gear_info{
-    
+    z-index: 2;
     position: absolute;
     top: -500%;
     left: 0px;
