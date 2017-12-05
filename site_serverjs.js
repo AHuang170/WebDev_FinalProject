@@ -1009,6 +1009,7 @@ function expand_option(mat_obj, option_id, target_name){
         //console.log(working_arr);
         working_arr.target = target_name;
         save_current_option(working_arr, document.getElementById(option_id).innerHTML);
+        
     }
     /*==================================================================SAVE FUNCTION HERE==================================================================*/
     document.getElementById("details_container").appendChild(nSave);
@@ -1824,7 +1825,7 @@ document.getElementById("preview_lable").addEventListener("click", function(){
 var page_bgm = new Audio("Audio/Tracks/mhfu_install_theme.mp3");
 var first_play = true;
 
-var track_list = ["Audio/Tracks/main_theme.mp3", "Audio/Tracks/mhfu_install_theme.mp3", "Audio/Tracks/shagaru_magala_theme.mp3", "Audio/Tracks/white_fatalis_theme.mp3", "Audio/Tracks/zinogre_theme.mp3", "Audio/Tracks/fated_four.mp3", "Audio/Tracks/mh_w_main.mp3", "Audio/tracks/valphalk.mp3"];
+var track_list = ["Audio/Tracks/main_theme.mp3", "Audio/Tracks/mhfu_install_theme.mp3", "Audio/Tracks/shagaru_magala_theme.mp3", "Audio/Tracks/white_fatalis_theme.mp3", "Audio/Tracks/zinogre_theme.mp3", "Audio/Tracks/fated_four .mp3", "Audio/Tracks/mh_w_main.mp3", "Audio/tracks/valphalk.mp3"];
 var track_pool = [];
 
 var saved_local_list = {};
@@ -1901,6 +1902,21 @@ function save_current_option(input_obj, acq_method){
         //console.log("local storage empty");
         localStorage.setItem("saved_list", arrText);
         alert("List saved to local storage.");
+        
+        
+        
+        
+        fetch(server+"/increment_wpn_stat/"+gear_type).then((resp)=>{
+                return resp.text();
+            }).then((text)=>{
+                //alert(text);
+                var returned_data = text.slice();
+                //console.log("server output" + returned_data);
+                console.log(returned_data);
+                //curr_selected_tree = document.getElementById("clipboard").innerHTML;
+                //console.log(document.getElementById("clipboard").innerHTML);
+                
+            });
     }
     else{
         //console.log("local storage not empty");
@@ -1916,6 +1932,18 @@ function save_current_option(input_obj, acq_method){
             localStorage.setItem("saved_list", new_arrText);
             
             alert("List saved to local storage.");
+            
+            fetch(server+"/increment_wpn_stat/"+gear_type).then((resp)=>{
+                return resp.text();
+                }).then((text)=>{
+                    //alert(text);
+                    var returned_data = text.slice();
+                    //console.log("server output" + returned_data);
+                    console.log(returned_data);
+                    //curr_selected_tree = document.getElementById("clipboard").innerHTML;
+                    //console.log(document.getElementById("clipboard").innerHTML);
+
+                });
         }
         
         else{
@@ -2020,6 +2048,8 @@ function create_type_list(){
         
     }
     
+    var nStatDiv = document.createElement('button');
+    
     var saved_list = saved_local_list.slice();
     
     var nDiv = document.createElement('div');
@@ -2046,6 +2076,10 @@ function create_type_list(){
     nType_B.id = "bkmk_type_button";
     nType_B.className = "category_button";
     nType_B.innerHTML = "Select";    
+    
+    nStatDiv.id = "bkmk_stat";
+    nStatDiv.className = "stat_button";
+    nStatDiv.innerHTML = "Stats";
     
     nTarget.id = "target_list";
     nTarget.className = "category_container";
@@ -2076,6 +2110,7 @@ function create_type_list(){
     nDiv.appendChild(nType);
     nDiv.appendChild(nTarget);
     nDiv.appendChild(nPath);
+    nDiv.appendChild(nStatDiv);
     
     document.body.appendChild(nDiv);
     
@@ -2095,6 +2130,43 @@ function create_type_list(){
         check_bkmk();
         bkmk_path_operation(nPath_L.value);
     }
+    
+    nStatDiv.onclick = function(){
+        alert_stat();
+        
+    }
+}
+
+function alert_stat(){
+    //alert("Bookmarked List Stats");
+    var wpn_abbrv = ["gs", "ls", "sns", "db", "ham", "hrn", "lan", "gl", "sa", "cb", "ig", "lbg", "hbg", "bow"];
+    var wpn_name = ["Great Sword", "Long Sword", "Sword and Shield", "Dual Blades", "Hammer", "Hunting Horn", "Lance", "Gunlance", "Switch Axe", "Charge Blade", "Insect Glaive", "Light Bowgun", "Heavy Bowgun", "Bow"];
+    fetch(server+"/get_type_stat/").then((resp)=>{
+                return resp.text();
+            }).then((text)=>{
+                //alert(text);
+                var returned_data = text.slice();
+                var returned_stat = JSON.parse(returned_data);
+                //console.log("server output" + returned_data);
+                //alert(returned_stat);
+                
+                var alert_string = "Global Bookmarked Weapon Stats:\n\n";
+                for(var index = 0; index < wpn_abbrv.length; index += 1){
+                    alert_string += "Number of saved " + wpn_name[index] + " lists: " + returned_stat[wpn_abbrv[index]] + " list";
+                    if(returned_stat['gs'] > 1){
+                        alert_string += "s";
+                    }
+                    alert_string += "\n";
+                }
+                alert_string += "\n";
+        
+                alert(alert_string);
+                
+                
+                //curr_selected_tree = document.getElementById("clipboard").innerHTML;
+                //console.log(document.getElementById("clipboard").innerHTML);
+                
+            });
 }
 
 function check_bkmk(){
@@ -2319,6 +2391,20 @@ function display_bkmk_mat_list(mat_obj){
     
     nDel.onclick = function(){
         delete_bkmk_entry();
+        var input_key = bkmk_data_id[0].slice();
+        
+        fetch(server+"/decrement_wpn_stat/"+input_key).then((resp)=>{
+                return resp.text();
+            }).then((text)=>{
+                //alert(text);
+                var returned_data = text.slice();
+                //console.log("server output" + returned_data);
+                console.log(returned_data);
+                //curr_selected_tree = document.getElementById("clipboard").innerHTML;
+                //console.log(document.getElementById("clipboard").innerHTML);
+                
+            });
+        
     };
     
     var nBack = document.createElement('div');
@@ -2334,6 +2420,55 @@ function display_bkmk_mat_list(mat_obj){
     document.getElementById("bkmk_mat_cont").appendChild(nDel);
     document.getElementById("bkmk_mat_cont").appendChild(nBack);
     
+}
+
+function conver_wpn_abbrv(input_name){
+    var input = input_name.slice();
+    
+    switch(input){
+        case "Great Sword":
+            return 'gs'
+            break;
+        case "Long Sword":
+            return 'ls'
+            break;
+        case "Sword and Shield":
+            return 'sns'
+            break;
+        case "Dual Blades":
+            return 'db'
+            break;
+        case "Hammer":
+            return 'ham'
+            break;
+        case "Hunting Horn":
+            return 'hrn'
+            break;
+        case "Lance":
+            return 'lan'
+            break;
+        case "Gunlance":
+            return 'gl'
+            break;
+        case "Switch Axe":
+            return 'sa'
+            break;
+        case "Charge Blade":
+            return 'cb'
+            break;
+        case "Insect Glaive":
+            return 'ig'
+            break;
+        case "Light Bowgun":
+            return 'lbg'
+            break;
+        case "Heavy Bowgun":
+            return 'hbg'
+            break;
+        case "Bow":
+            return 'bow'
+            break;
+    }
 }
 
 function delete_bkmk_entry(){
@@ -2378,7 +2513,7 @@ function convert_wpn_name (wpn_name){
             return "Dual Blades";
             break;
         case 'ham':
-            return "Hamme";
+            return "Hammer";
             break;
         case 'hrn':
             return "Hunting Horn";

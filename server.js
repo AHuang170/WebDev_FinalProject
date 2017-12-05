@@ -66,6 +66,8 @@ var lbg_trees = [];
 var hbg_trees = [];
 var bow_trees = [];
 
+var type_stat = {gs: 0, ls: 0, sns: 0, db: 0, ham: 0, hrn: 0, lan: 0, gl: 0, sa: 0, cb: 0, ig: 0, lbg: 0, hbg: 0, bow: 0};
+
 
 app.use(cors());
 
@@ -102,6 +104,40 @@ app.get("/get_path_list/:string", (req, resp)=>{
     //console.log(return_string);
     resp.end(return_string);
 });
+
+app.get("/get_type_stat/", (req, resp)=>{
+    
+    var selected_dic = Object.assign({}, type_stat);
+    var return_string = JSON.stringify(selected_dic);
+    //console.log(return_string);
+    resp.end(return_string);
+});
+
+app.get("/increment_wpn_stat/:string", (req, resp)=>{
+    var input_selection = req.params.string;
+    var curr_val = type_stat[input_selection];
+    var new_val = curr_val + 1;
+    type_stat[input_selection] = new_val;
+    var return_string = "Weapon stat updated";
+    //console.log(return_string);
+    resp.end(return_string);
+});
+
+app.get("/decrement_wpn_stat/:string", (req, resp)=>{
+    var input_selection = req.params.string;
+    
+    var curr_val = type_stat[input_selection];
+    var new_val = curr_val - 1;
+    if(new_val < 0){
+        new_val = 0;
+    }
+    type_stat[input_selection] = new_val;
+    var return_string = "Weapon stat updated";
+    //console.log(return_string);
+    resp.end(return_string);
+});
+
+
 
 /*
 EXAMPLE:

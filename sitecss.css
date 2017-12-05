@@ -1449,6 +1449,17 @@ body{
     height: 20px;
 }
 
+.stat_button{
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: -25px;
+    margin: auto;
+    height: 22px;
+    width: 100%;
+    
+}
+
 #type_list{
     top: 0px;
 }
