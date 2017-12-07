@@ -1825,7 +1825,7 @@ document.getElementById("preview_lable").addEventListener("click", function(){
 var page_bgm = new Audio("Audio/Tracks/mhfu_install_theme.mp3");
 var first_play = true;
 
-var track_list = ["Audio/Tracks/main_theme.mp3", "Audio/Tracks/mhfu_install_theme.mp3", "Audio/Tracks/shagaru_magala_theme.mp3", "Audio/Tracks/white_fatalis_theme.mp3", "Audio/Tracks/zinogre_theme.mp3", "Audio/Tracks/fated_four .mp3", "Audio/Tracks/mh_w_main.mp3", "Audio/tracks/valphalk.mp3"];
+var track_list = ["Audio/Tracks/main_theme.mp3", "Audio/Tracks/mhfu_install_theme.mp3", "Audio/Tracks/shagaru_magala_theme.mp3", "Audio/Tracks/white_fatalis_theme.mp3", "Audio/Tracks/zinogre_theme.mp3", "Audio/Tracks/fated_four.mp3", "Audio/Tracks/mh_w_main.mp3", "Audio/tracks/valphalk.mp3"];
 var track_pool = [];
 
 var saved_local_list = {};
@@ -2150,10 +2150,10 @@ function alert_stat(){
                 //console.log("server output" + returned_data);
                 //alert(returned_stat);
                 
-                var alert_string = "Global Bookmarked Weapon Stats:\n\n";
+                var alert_string = "Global Bookmarked Weapon Statistics:\n\n";
                 for(var index = 0; index < wpn_abbrv.length; index += 1){
-                    alert_string += "Number of saved " + wpn_name[index] + " lists: " + returned_stat[wpn_abbrv[index]] + " list";
-                    if(returned_stat['gs'] > 1){
+                    alert_string += "# of saved " + wpn_name[index] + " lists: " + returned_stat[wpn_abbrv[index]] + " list";
+                    if(returned_stat[wpn_abbrv[index]] > 1){
                         alert_string += "s";
                     }
                     alert_string += "\n";
