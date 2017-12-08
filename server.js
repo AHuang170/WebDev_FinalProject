@@ -282,30 +282,115 @@ var ls_Arbiter_Path = [
     [{type: 'node', name: "Nenekirimaru", rarity: 9, attack: 726, ele_type: 'Water', ele_val: '670', num_slot: '---', affinity: '10%', flavour: "An elegant brand given to an Eastern warlord. Sunlight ripples on its painted tip.", upgrade: ["100000z", "Brutal Biter", 2, "D. Mohran Rockskin", 3, "D. Mohran Allbrace", 4, "Earth Dragongem", 1], craft: [], shop: 'N/A', sharp: "Img/Weap/ls/Nenekirimaru/base_sharp.png", p_sharp: "Img/Weap/ls/Nenekirimaru/plus_sharp.png", pic: "Img/Weap/ls/Nenekirimaru/render.png", parent: ["Susano-o", 0, 2], playstyle: 'Blademaster', extra: 'Defense +35'}], 
     [{type: 'connector', pic: 'Img/connector_5.png'}], 
     [{type: 'node', name: "Onamuchi", rarity: 10, attack: 792, ele_type: 'Water', ele_val: '720', num_slot: '---', affinity: '10%', flavour: "An elegant brand given to an Eastern warlord. Sunlight ripples on its painted tip.", upgrade: ["130000z", "D. Mohran Heavyscale", 5, "Brutal Biter", 5, "Earth Dragonspire", 1, "Conqueror's Seal", 3], craft: [], shop: 'N/A', sharp: "Img/Weap/ls/Onamuchi/base_sharp.png", p_sharp: "Img/Weap/ls/Onamuchi/plus_sharp.png", pic: "Img/Weap/ls/Onamuchi/render.png", parent: ["Nenekirimaru", 0, 4], playstyle: 'Blademaster', extra: 'Defense +40'}]
-    
-    
+];
+
+var sns_Poise_Path = [
+    [{type: 'node', name: "Poise", rarity: 4, attack: 168, ele_type: 'Water', ele_val: '300', num_slot: '---', affinity: '10%', flavour: "A raging war god's crimson Sword. Beautiful to behold when locked in combat.", upgrade: [], craft: ["30000z", "D.Mohran Bloodscale", 8, "Brutal Horn", 2, "D.Mohran Brace", 2], shop: 'N/A', sharp: "Img/Weap/sns/Poise/base_sharp.png", p_sharp: "Img/Weap/sns/Poise/plus_sharp.png", pic: "Img/Weap/sns/Poise/render.png", parent: [], playstyle: 'Blademaster', extra: ''}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Ame-no-Habakiri", rarity: 7, attack: 196, ele_type: 'Water', ele_val: '470', num_slot: 'O--', affinity: '20%', flavour: "A raging war god's crimson Sword. Beautiful to behold when locked in combat.", upgrade: ["65000z", "Brutal Horn", 3, "D.Mohran Brace+", 5, "Earth Dragongem", 1, "S.Zinogre Umbrage", 1], craft: [], shop: 'N/A', sharp: "Img/Weap/sns/Ame-no-Habakiri/base_sharp.png", p_sharp: "Img/Weap/sns/Ame-no-Habakiri/plus_sharp.png", pic: "Img/Weap/sns/Ame-no-Habakiri/render.png", parent: ["Poise", 0, 0], playstyle: 'Blademaster', extra: 'Defense +30'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Orochi", rarity: 9, attack: 266, ele_type: 'Water', ele_val: '500', num_slot: 'O--', affinity: '25%', flavour: "A raging war god's crimson Sword. Beautiful to behold when locked in combat.", upgrade: ["100000z", "D.Mohran Heavyscale", 8, "Brutal Biter", 2, "D.Mohran Allbrace", 2], craft: [], shop: 'N/A', sharp: "Img/Weap/sns/Orochi/base_sharp.png", p_sharp: "Img/Weap/sns/Orochi/plus_sharp.png", pic: "Img/Weap/sns/Orochi/render.png", parent: ["Ame-no-Habakiri", 0, 2], playstyle: 'Blademaster', extra: 'Defense +40'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Yaegaki", rarity: 10, attack: 280, ele_type: 'Water', ele_val: '530', num_slot: 'O--', affinity: '30%', flavour: "A raging war god's crimson Sword. Beautiful to behold when locked in combat.", upgrade: ["130000z", "Brutal Biter", 3, "D.Mohran Allbrace", 5, "Earth Dragonsphire", 1, "Diablos Hardhorn", 1], craft: [], shop: 'N/A', sharp: "Img/Weap/sns/Yaegaki/base_sharp.png", p_sharp: "Img/Weap/sns/Yaegaki/plus_sharp.png", pic: "Img/Weap/sns/Yaegaki/render.png", parent: ["Orochi", 0, 4], playstyle: 'Blademaster', extra: 'Defense +45'}]
+];
+
+
+var db_Ritual_HailScreamers_Path =  [
+    [{type: 'node', name: "Ritual Hailscreamers", rarity: 7, attack: 196, ele_type: 'Paralysis/Ice', ele_val: '220/400', num_slot: 'O--', affinity: '0%', flavour: "Blades named for the scream- like sound of hailstones. They freeze prey to the bone.", upgrade: [], craft: ["75000z", "Dragonwood+", 4, "Tsukami Fluid", 6, "Kirin Icehorn", 7, "Kirin Frost Tail", 3], shop: 'N/A', sharp: "Img/Weap/db/Ritual_Hailscreamer/base_sharp.png", p_sharp: "Img/Weap/db/Ritual_Hailscreamer/plus_sharp.png", pic: "Img/Weap/db/Ritual_Hailscreamer/render.png", parent: [], playstyle: 'Blademaster', extra: ''}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Ritual Eidolons", rarity: 10, attack: 266, ele_type: 'Paralysis/Ice', ele_val: '260/440', num_slot: 'O--', affinity: '0%', flavour: "Blades named for the scream- like sound of hailstones. They freeze prey to the bone.", upgrade: ["120000z", "Ancient Dragonwood", 3, "Ancient Dragonmoss", 6, "Kirin Ice Peak", 7, "Kirin Frostlash", 3], craft: [], shop: 'N/A', sharp: "Img/Weap/db/Ritual_Eidolons/base_sharp.png", p_sharp: "Img/Weap/db/Ritual_Eidolons/plus_sharp.png", pic: "Img/Weap/db/Ritual_Eidolons/render.png", parent: ["Ritual Hailscreamers", 0, 0], playstyle: 'Blademaster', extra: ''}]
+];
+
+var ham_Eminence_Path = [
+    [{type: 'node', name: "Eminence", rarity: 4, attack: 624, ele_type: 'Water', ele_val: '350', num_slot: '---', affinity: '0%', flavour: "A Hammer akin to the holy mount where the Eastern gods resided. Ripples the earth.", upgrade: [], craft: ["30000z", "Brutal Horn", 1, "D.Mohran Shell", 5, "Dah'renstone", 4], shop: 'N/A', sharp: "Img/Weap/ham/Eminence/base_sharp.png", p_sharp: "Img/Weap/ham/Eminence/plus_sharp.png", pic: "Img/Weap/ham/Eminence/render.png", parent: [], playstyle: 'Blademaster', extra: 'Defense +10'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Kushinada", rarity: 7, attack: 780, ele_type: 'Water', ele_val: '520', num_slot: '---', affinity: '15%', flavour: "A Hammer akin to the holy mount where the Eastern gods resided. Ripples the earth.", upgrade: ["65000z", "D.Mohran Brace+", 2, "Fucium Ore", 10, "Elder Dragon Blood", 3, "S.Zinogre Umbrage", 1], craft: [], shop: 'N/A', sharp: "Img/Weap/ham/Kushinada/base_sharp.png", p_sharp: "Img/Weap/ham/Kushinada/plus_sharp.png", pic: "Img/Weap/ham/Kushinada/render.png", parent: ["Eminence", 0, 0], playstyle: 'Blademaster', extra: 'Defense +30'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Fugaku", rarity: 9, attack: 1300, ele_type: 'Water', ele_val: '630', num_slot: '---', affinity: '20%', flavour: "A Hammer akin to the holy mount where the Eastern gods resided. Ripples the earth.", upgrade: ["100000z", "Brutal Biter", 1, "D.Mohran Allbrace", 5, "Dah'renstone", 7], craft: [], shop: 'N/A', sharp: "Img/Weap/ham/Fugaku/base_sharp.png", p_sharp: "Img/Weap/ham/Fugaku/plus_sharp.png", pic: "Img/Weap/ham/Fugaku/render.png", parent: ["Kushinada", 0, 2], playstyle: 'Blademaster', extra: 'Defense +35'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Nadeshiko", rarity: 10, attack: 1352, ele_type: 'Water', ele_val: '660', num_slot: '--', affinity: '20%', flavour: "A Hammer akin to the holy mount where the Eastern gods resided. Ripples the earth.", upgrade: ["130000z", "D.Mohran Allbrace", 2, "D.Mohran Rockskin", 8, "Earth Dragonsphire", 1, "Lrg Elder Dragon Gem", 1], craft: [], shop: 'N/A', sharp: "Img/Weap/ham/Nadeshiko/base_sharp.png", p_sharp: "Img/Weap/ham/Nadeshiko/plus_sharp.png", pic: "Img/Weap/ham/Nadeshiko/render.png", parent: ["Fugaku", 0, 4], playstyle: 'Blademaster', extra: 'Defense +45'}]
+];
+
+var hrn_Akantor_Horn_Path = [
+    [{type: 'node', name: "Akantor Horn", rarity: 7, attack: 1144, ele_type: 'No Element', ele_val: '', num_slot: 'OO-', affinity: '30%', flavour: "A Hunting Horn with the power of the black god. All who hear it are shaken to the soul.", upgrade: [], craft: ["99999z", "Akantor Tail", 1, "Akantor Tallfang", 2, "Akantor Scale+", 8, "Akantor Gem", 1], shop: 'N/A', sharp: "Img/Weap/hrn/Akantor_Horn/base_sharp.png", p_sharp: "Img/Weap/hrn/Akantor_Horn/plus_sharp.png", pic: "Img/Weap/hrn/Akantor_Horn/render.png", parent: [], playstyle: 'Blademaster', extra: 'Notes: Purple Blue Orange'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Akantor Dark Melody", rarity: 10, attack: 1768, ele_type: 'No Element', ele_val: '', num_slot: 'OO-', affinity: '40%', flavour: "A Hunting Horn with the power of the black god. All who hear it are shaken to the soul.", upgrade: ["130000z", "Akantor Greatfang", 4, "Akantor Flail", 2, "Lrg Wyvern Gem", 3, "Conquest Sphere", 1], craft: [], shop: 'N/A', sharp: "Img/Weap/hrn/Akantor_Dark_Melody/base_sharp.png", p_sharp: "Img/Weap/hrn/Akantor_Dark_Melody/plus_sharp.png", pic: "Img/Weap/hrn/Akantor_Dark_Melody/render.png", parent: ["Akantor Horn", 0, 0], playstyle: 'Blademaster', extra: 'Notes: Purple Blue Orange'}]
+];
+
+var lan_Thunderspear_Path = [
+    [{type: 'node', name: "Thunderspear", rarity: 4, attack: 253, ele_type: 'Thunder', ele_val: '400', num_slot: '---', affinity: '5%', flavour: "A Lance that unleashed thunder. 'And with the thunder, the world is returned to dust.'", upgrade: [], craft: ["30000z", "Kirin Thunderhorn", 2, "Kirin Mane", 4, "Thunderbug", 8, "Garuga Tail", 2], shop: 'N/A', sharp: "Img/Weap/lan/Thunderspear/base_sharp.png", p_sharp: "Img/Weap/lan/Thunderspear/plus_sharp.png", pic: "Img/Weap/lan/Thunderspear/render.png", parent: [], playstyle: 'Blademaster', extra: ''}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Thunderlance", rarity: 7, attack: 345, ele_type: 'Thunder', ele_val: '560', num_slot: '---', affinity: '10%', flavour: "A Lance that unleashes thunder. 'And with the thunder, the world is returned to dust.'", upgrade: ["70000z", "Kirin Thunderhorn", 5, "Kirin Hide+", 7, "Kirin Thundertail", 5, "Garuga Tail", 5], craft: [], shop: 'N/A', sharp: "Img/Weap/lan/Thunderlance/base_sharp.png", p_sharp: "Img/Weap/lan/Thunderlance/plus_sharp.png", pic: "Img/Weap/lan/Thunderlance/render.png", parent: ["Thunderspear", 0, 0], playstyle: 'Blademaster', extra: ''}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Naar Thunderlance", rarity: 10, attack: 529, ele_type: 'Thunder', ele_val: '660', num_slot: '---', affinity: '20%', flavour: "A Lance that unleashes thunder. 'And with the thunder, the world is returned to dust.'", upgrade: ["120000z", "Kirin Azure Peak", 5, "Kirin Finehide", 7, "Kirin Thunderlash", 5, "Garuga Lash", 4], craft: [], shop: 'N/A', sharp: "Img/Weap/lan/Naar_Thunderlance/base_sharp.png", p_sharp: "Img/Weap/lan/Naar_Thunderlance/plus_sharp.png", pic: "Img/Weap/lan/Naar_Thunderlance/render.png", parent: ["Thunderlance", 0, 2], playstyle: 'Blademaster', extra: ''}]
+];
+
+var gl_Fatalis_Gunlance_Path = [
+    [{type: 'node', name: "Fatalis Gunlance", rarity: 7, attack: 391, ele_type: 'Dragon', ele_val: '420', num_slot: 'OO-', affinity: '0%', flavour: "A great treasure that curses with its evil gaze. Its very glimmer instills fear.", upgrade: [], craft: ["105000z", "Fatalis Eye", 1, "Fatalis Horn", 3, "Fatalis Shell", 6, "S.Zinogre Umbrage", 1], shop: 'N/A', sharp: "Img/Weap/gl/Fatalis_Gunlance/base_sharp.png", p_sharp: "Img/Weap/gl/Fatalis_Gunlance/plus_sharp.png", pic: "Img/Weap/gl/Fatalis_Gunlance/render.png", parent: [], playstyle: 'Blademaster', extra: 'Shell Type: Normal LV4'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "True Fatalis Gunlance", rarity: 10, attack: 621, ele_type: 'Dragon', ele_val: '620', num_slot: 'OO-', affinity: '0%', flavour: "A great treasure that curses with its evil gaze. Its very glimmer instills fear.", upgrade: ["166666z", "Fatalis Evil Eye", 2, "Fatalis Hardhorn", 3, "Deviljho Crook", 1, "Lrg Elder Dragon Gem", 1], craft: [], shop: 'N/A', sharp: "Img/Weap/gl/True_Fatalis_Gunlance/base_sharp.png", p_sharp: "Img/Weap/gl/True_Fatalis_Gunlance/plus_sharp.png", pic: "Img/Weap/gl/True_Fatalis_Gunlance/render.png", parent: ["Fatalis Gunlance", 0, 0], playstyle: 'blademaster', extra: 'Shell Type: Normal LV5'}]
+];
+
+var sa_Great_Inceadeus_Path = [
+    [{type: 'node', name: "Great Inceadeus", rarity: 7, attack: 972, ele_type: 'Water', ele_val: '972', num_slot: '---', affinity: '5%', flavour: "A legendary Switch Axe carved from a Ceadeus horn. It glows white from within.", upgrade: [], craft: ["75000z", "Crooked Horn", 3, "Ceadeus Hide", 7, "Elder Dragon Bone", 5, "Luminous Organ", 1], shop: 'N/A', sharp: "Img/Weap/sa/Great_Inceadeus/base_sharp.png", p_sharp: "Img/Weap/sa/Great_Inceadeus/plus_sharp.png", pic: "Img/Weap/sa/Great_Inceadeus/render.png", parent: [], playstyle: 'Blademaster', extra: 'Defense +10 / Phial: Power'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Ceadeed Axe", rarity: 10, attack: 1566, ele_type: 'Water', ele_val: '330', num_slot: '---', affinity: '15%', flavour: "A legendary Switch Axe carved from a Ceadeus horn. It glows white from within.", upgrade: ["120000z", "Ceadeus Strongfur", 5, "Ceadeus Scale", 5, "Deep Dragongem", 1, "D.S.QueenConcentrate", 1], craft: [], shop: 'N/A', sharp: "Img/Weap/sa/Ceadeed_Axe/base_sharp.png", p_sharp: "Img/Weap/sa/Ceadeed_Axe/plus_sharp.png", pic: "Img/Weap/sa/Ceadeed_Axe/render.png", parent: ["Great Inceadeus", 0, 0], playstyle: 'Blademaster', extra: 'Defense +20 / Phial: Power'}]
+];
+
+var cb_Elendskraft_Path = [
+    [{type: 'node', name: "Elendskraft", rarity: 3, attack: 468, ele_type: 'Dragon', ele_val: '100', num_slot: '---', affinity: '20%', flavour: "The skull signifies death; once fully charged, it blasts foes into oblivion.", upgrade: [], craft: ["12000z", "Gore Magala Feeler", 3, "Gore Magala Shell", 8, "Gore Magala Tail", 1, "Defiled Scale", 3], shop: 'N/A', sharp: "Img/Weap/cb/Elendskraft/base_sharp.png", p_sharp: "Img/Weap/cb/Elendskraft/plus_sharp.png", pic: "Img/Weap/cb/Elendskraft/render.png", parent: [], playstyle: 'Blademaster', extra: 'Phial: Impact'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Leidenskraft", rarity: 4, attack: 504, ele_type: 'Dragon', ele_val: '120', num_slot: '---', affinity: '20%', flavour: "The skull signifies death; once fully charged, it blasts foes into oblivion.", upgrade: ["12000z", "Gore Magala Ripclaw", 4, "S.Magala Shell", 4, "S.Magala Tail", 2, "S.Magala Plate", 1], craft: [], shop: 'N/A', sharp: "Img/Weap/cb/Leidenskraft/base_sharp.png", p_sharp: "Img/Weap/cb/Leidenskraft/plus_sharp.png", pic: "Img/Weap/cb/Leidenskraft/render.png", parent: ["Elendskraft", 0, 0], playstyle: 'Blademaster', extra: 'Phial: Impact'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Unheilskraft", rarity: 5, attack: 540, ele_type: 'Dragon', ele_val: '160', num_slot: '---', affinity: '20%', flavour: "The skull signifies death; once fully charged, it blasts foes into oblivion.", upgrade: ["30000z", "Gore Magala Feeler+", 2, "Gore Magala Scale+", 5, "Gore Magala Carapace", 4, "Gore Magala Wing+", 3], craft: [], shop: 'N/A', sharp: "Img/Weap/cb/Unheilskraft/base_sharp.png", p_sharp: "Img/Weap/cb/Unheilskraft/plus_sharp.png", pic: "Img/Weap/cb/Unheilskraft/render.png", parent: ["Leidenskraft", 0, 2], playstyle: 'Blademaster', extra: 'Phial: Impact'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "L'Oppresseur", rarity: 7, attack: 648, ele_type: 'Dragon', ele_val: '230', num_slot: '---', affinity: '25%', flavour: "The gem signifies life; once fully charged, it blasts foes into the light.", upgrade: ["60000z", "S.Magala Carapace", 4, "S.Magala Caress+", 3, "S.Magala Prismwing+", 3, "S.Magala Phosgem", 1], craft: [], shop: 'N/A', sharp: "Img/Weap/cb/L'Oppresseur/base_sharp.png", p_sharp: "Img/Weap/cb/L'Oppresseur/plus_sharp.png", pic: "Img/Weap/cb/L'Oppresseur/render.png", parent: ["Unheilskraft", 0, 4], playstyle: 'Blademaster', extra: 'Phial: Impact'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "L'Essor", rarity: 9, attack: 828, ele_type: 'Dragon', ele_val: '330', num_slot: '---', affinity: '30%', flavour: "The gem signifies life; once fully charged, it blasts foes into the light.", upgrade: ["90000z", "Gore Magala Sensor", 2, "Gore Magala Shard", 5, "Gore Magala Cortex", 4, "Gore Magala Eclipse", 3], craft: [], shop: 'N/A', sharp: "Img/Weap/cb/L'Essor/base_sharp.png", p_sharp: "Img/Weap/cb/L'Essor/plus_sharp.png", pic: "Img/Weap/cb/L'Essor/render.png", parent: ["L'Oppresseur", 0, 6], playstyle: 'Blademaster', extra: 'Phial: Impact'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Le Salut", rarity: 10, attack: 900, ele_type: 'Dragon', ele_val: '390', num_slot: '---', affinity: '35%', flavour: "The gem signifies life; once fully charged, it blasts foes into the light.", upgrade: ["130000z", "S.Magala Cortex", 4, "S. Magala Purifier", 3, "S.Magala Lightwing", 3, "S.Magala Mantle", 1], craft: [], shop: 'N/A', sharp: "Img/Weap/cb/Le_Salut/base_sharp.png", p_sharp: "Img/Weap/cb/Le_Salut/plus_sharp.png", pic: "Img/Weap/cb/Le_Salut/render.png", parent: ["L'Essor", 0, 8], playstyle: 'Blademaster', extra: 'Phial: Impact'}]
+];
+
+var ig_Fatalis_Glaive_Path = [
+    [{type: 'node', name: "Fatalis Glaive", rarity: 7, attack: 465, ele_type: 'Dragon', ele_val: '340', num_slot: '---', affinity: 'N/A', flavour: "The ultimate glaive, within which nature and evil unite in almighty equilibrium.", upgrade: [], craft: ["75000z", "Fatalis Horn", 4, "Elder Dragon Bone", 5, "Novacrystal", 8], shop: 'N/A', sharp: "Img/Weap/ig/Fatalis_Glaive/base_sharp.png", p_sharp: "Img/Weap/ig/Fatalis_Glaive/plus_sharp.png", pic: "Img/Weap/ig/Fatalis_Glaive/render.png", parent: [], playstyle: 'Blademaster', extra: 'Defense +10 / Blunt LV 1-3'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Fatalis Glaive+", rarity: 7, attack: 527, ele_type: 'Dragon', ele_val: '380', num_slot: 'O--', affinity: 'N/A', flavour: "The ultimate glaive, within which nature and evil unite in almighty equilibrium.", upgrade: ["80000z", "Fatalis Scale", 3, "Fatalis Horn", 1], craft: [], shop: 'N/A', sharp: "Img/Weap/ig/Fatalis_Glaive+/base_sharp.png", p_sharp: "Img/Weap/ig/Fatalis_Glaive+/plus_sharp.png", pic: "Img/Weap/ig/Fatalis_Glaive+/render.png", parent: ["Fatalis Glaive", 0, 0], playstyle: 'Blademaster', extra: 'Defense +15 / Blunt LV 4-6'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Fatalis Fate", rarity: 7, attack: 558, ele_type: 'Dragon', ele_val: '480', num_slot: 'OO-', affinity: 'N/A', flavour: "The ultimate glaive, within which nature and evil unite in almighty equilibrium.", upgrade: ["85000z", "Fatalis Shell", 4, "Elder Dragon Blood", 1], craft: [], shop: 'N/A', sharp: "Img/Weap/ig/Fatalis_Fate/base_sharp.png", p_sharp: "Img/Weap/ig/Fatalis_Fate/plus_sharp.png", pic: "Img/Weap/ig/Fatalis_Fate/render.png", parent: ["Fatalis Glaive+", 0, 2], playstyle: 'Blademaster', extra: 'Defense +18 / Blunt LV 7-10'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "True Fatalis Dyaus", rarity: 10, attack: 837, ele_type: 'Dragon', ele_val: '520', num_slot: 'OOO', affinity: 'N/A', flavour: "The ultimate glaive, within which nature and evil unite in almighty equilibrium.", upgrade: ["166666z", "Fatalis Evil Eye", 2, "Lrg Elder Dragon Gem", 2], craft: [], shop: 'N/A', sharp: "Img/Weap/ig/True_Fatalis_Dyaus/base_sharp.png", p_sharp: "Img/Weap/ig/True_Fatalis_Dyaus/plus_sharp.png", pic: "Img/Weap/ig/True_Fatalis_Dyaus/render.png", parent: ["Fatalis Fate", 0, 4], playstyle: 'Blademaster', extra: 'Defense +40 / Blunt LV 11-12'}]
+];
+
+var lbg_Blitz_Bowgun_Path = [
+    [{type: 'node', name: "Blitz Bowgun", rarity: 4, attack: 195, ele_type: 'Reload Speed', ele_val: 'Average', num_slot: 'O--', affinity: '0%', flavour: "A bowgun made from unusual materials in response to hard-core Gunner demand.", upgrade: [], craft: ["30000z", "Kirin Thunderhorn", 2, "Kirin Mane", 3, "Garuga Mane", 1, "Dragonite Ore", 10], shop: 'N/A', sharp: "Img/blank.png", p_sharp: "Img/blank.png", pic: "Img/Weap/lbg/Blitz_Bowgun/render.png", parent: [], playstyle: 'Gunner', extra: 'Defense +30 <br> RF: Thunder S', recoil: 'Low', deviation: 'None'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Blitz Kirin", rarity: 7, attack: 221, ele_type: 'Reload Speed', ele_val: 'Average', num_slot: 'OO-', affinity: '0%', flavour: "A bowgun made from unusual materials in response to hard-core Gunner demand.", upgrade: ["60000z", "Kirin Hide+", 8, "Kirin Mane", 4, "Kirin Azure Horn", 3, "Garuga Mane", 3], craft: [], shop: 'N/A', sharp: "Img/blank.png", p_sharp: "Img/blank.png", pic: "Img/Weap/lbg/Blitz_Kirin/render.png", parent: ["Blitz Bowgun", 0, 0], playstyle: 'Gunner', extra: 'Defense +50 <br> RF: Thunder S Para S', recoil: 'Low', deviation: 'None'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Blitz Kirin King", rarity: 10, attack: 325, ele_type: 'Reload Speed', ele_val: 'Average', num_slot: 'OO-', affinity: '0%', flavour: "A bowgun made from unusual materials in response to hard-core Gunner demand.", upgrade: ["120000z", "Kirin Finehide", 8, "Platinum Mane", 4, "Kirin Azure Peak", 3, "Garuga Silverpelt", 3], craft: [], shop: 'N/A', sharp: "Img/blank.png", p_sharp: "Img/blank.png", pic: "Img/Weap/lbg/Blitz_Kirin_King/render.png", parent: ["Blitz Kirin", 0, 2], playstyle: 'Gunner', extra: 'Defense +65 <br> RF: Thunder S Para S', recoil: 'Low', deviation: 'None'}]
 ];
 
 //{type: 'node', name: "", rarity: , attack: , ele_type: '', ele_val: '', num_slot: '', affinity: '', flavour: "", upgrade: [], craft: [], shop: '', sharp: "", p_sharp: "", pic: "", parent: [], playstyle: '', extra: ''}
+//{type: 'node', name: "", rarity: , attack: , ele_type: '', ele_val: '', num_slot: '', affinity: '', flavour: "", upgrade: [], craft: [], shop: '', sharp: "", p_sharp: "", pic: "", parent: [], playstyle: '', extra: '', recoil: '', deviation: ''}
 //{type: 'connector', pic: 'Img/connector_.png'}
 //{type: 'blank'}
 
 var gs_trees = ["Iron_Sword_Path", "Bone_Blade_Path", "Vile_Serpentblade_Path", "Plesioth_Watercutter_Path", "Frozen_Speartuna_Path", "Kirin_Thundersword_Path", "Red_Pincer_Path", "Vulcanis_Path", "Berserker_Sword_Path", "Cheda_Blade_Path", "Swordscale_Shard_Path", "Emperor_Frostsword_Path", "Akantor_Broadsword_Path", "Ukanlos_Destructor_Path", "Fatalis_Blade_Path", "DusterEclat_Path", "Grand_Shamshir_Path", "Eldaoras_Death_Path", "Monument_of_Lament_Path", "Flame_Fatalis_Blade_Path", "Fatalis_Legacy_Path", "Rusted_Great_Sword_Path", "Worn_Great_Sword_Path", "Universal_Chrome_Path", "Black_Belt_Blade_Path", "G_Blade_Path", "Commemoration_Sword_Path", "Houma_no_Tsurugi_Path", "True_Cutter_Sword_Path", "Captain_J_Blade_Path", "Chivalry_Path", "Amons_Sword_Path"];
 var ls_trees = ["Arbiter_Path"];
-var sns_trees = [];
-var db_trees = [];
-var ham_trees = [];
-var hrn_trees = [];
-var lan_trees = [];
-var gl_trees = [];
-var sa_trees = [];
-var cb_trees = [];
-var ig_trees = [];
-var lbg_trees = [];
+var sns_trees = ["Poise_Path"];
+var db_trees = ["Ritual_HailScreamers_Path"];
+var ham_trees = ["Eminence_Path"];
+var hrn_trees = ["Akantor_Horn_Path"];
+var lan_trees = ["Thunderspear_Path"];
+var gl_trees = ["Fatalis_Gunlance_Path"];
+var sa_trees = ["Great_Inceadeus_Path"];
+var cb_trees = ["Elendskraft_Path"];
+var ig_trees = ["Fatalis_Glaive_Path"];
+var lbg_trees = ["Blitz_Bowgun_Path"];
 var hbg_trees = [];
 var bow_trees = [];
 
 var type_stat = {gs: 0, ls: 0, sns: 0, db: 0, ham: 0, hrn: 0, lan: 0, gl: 0, sa: 0, cb: 0, ig: 0, lbg: 0, hbg: 0, bow: 0};
+var wpn_stat = {};
 
 
 app.use(cors());
@@ -348,33 +433,104 @@ app.get("/get_type_stat/", (req, resp)=>{
     
     var selected_dic = Object.assign({}, type_stat);
     var return_string = JSON.stringify(selected_dic);
-    //console.log(return_string);
+    var max_wpn = find_max_wpn().slice();
+    //console.log(max_wpn);
+    var return_data = [selected_dic, max_wpn[0], max_wpn[1]];
+    var return_string = JSON.stringify(return_data);
+    
     resp.end(return_string);
 });
 
-app.get("/increment_wpn_stat/:string", (req, resp)=>{
-    var input_selection = req.params.string;
-    var curr_val = type_stat[input_selection];
+app.get("/increment_type_stat/:string", (req, resp)=>{
+    
+    var input_selection = req.params.string.split(",");
+    //console.log(input_selection);
+    var curr_val = type_stat[input_selection[0]];
     var new_val = curr_val + 1;
-    type_stat[input_selection] = new_val;
+    type_stat[input_selection[0]] = new_val;
+    
+    var wpn_curr_val = 0;
+    var wpn_new_val = 0;
+    if(input_selection[1] in wpn_stat){
+        wpn_curr_val = wpn_stat[input_selection[1]];
+        wpn_new_val = wpn_curr_val + 1;
+    }
+    else{
+        wpn_new_val = 1;
+    }
+    
+    wpn_stat[input_selection[1]] = wpn_new_val;
+    
+   //console.log(wpn_stat);
+    
     var return_string = "Weapon stat updated";
     //console.log(return_string);
     resp.end(return_string);
 });
 
-app.get("/decrement_wpn_stat/:string", (req, resp)=>{
-    var input_selection = req.params.string;
-    
-    var curr_val = type_stat[input_selection];
+
+
+app.get("/decrement_type_stat/:string", (req, resp)=>{
+    //console.log("decrement type")
+    var input_selection = req.params.string.split(",");;
+    //console.log(input_selection);
+    var curr_val = type_stat[input_selection[0]];
     var new_val = curr_val - 1;
     if(new_val < 0){
         new_val = 0;
     }
-    type_stat[input_selection] = new_val;
-    var return_string = "Weapon stat updated";
+    type_stat[input_selection[0]] = new_val;
+    
+    var wpn_curr_val = 0;
+    var wpn_new_val = 0;
+    
+    if(input_selection[1] in wpn_stat){
+        wpn_curr_val = wpn_stat[input_selection[1]];
+        wpn_new_val = wpn_curr_val - 1;
+        
+        if(wpn_new_val <= 0){
+            delete wpn_stat[input_selection[1]];
+        }
+        else{
+            wpn_stat[input_selection[1]] = wpn_new_val;
+        }
+    }
+    
+    //console.log(wpn_stat);
+    
+    var return_string = "Weapon updated";
     //console.log(return_string);
     resp.end(return_string);
 });
+
+
+function find_max_wpn(){
+    var work_obj = Object.assign({}, wpn_stat);
+    var work_keys = Object.keys(work_obj);
+    var max_amount = -1;
+    var max_key = [];
+    
+    if(work_keys.length == 0){
+        return "";
+    }
+    else{
+        for(var index = 0; index < work_keys.length; index += 1){
+            if(work_obj[work_keys[index]] > max_amount){
+                max_amount = work_obj[work_keys[index]];
+                max_key = [];
+                max_key.push(work_keys[index]);
+            }
+            else if(work_obj[work_keys[index]] == max_amount){
+                max_key.push(work_keys[index]);
+            }
+        }
+        
+        //console.log(max_amount + ", " + max_key);
+        var return_data = [max_amount, max_key];
+        return return_data.slice();
+        
+    }
+}
 
 
 

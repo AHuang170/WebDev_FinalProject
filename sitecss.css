@@ -1103,7 +1103,7 @@ body{
 
     left: 0px;
     margin: auto;
-    border 1px solid;
+    border: 1px solid;
     border-color: darkcyan;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.2);
     animation-name: spawn;
@@ -1152,6 +1152,8 @@ body{
     width: 100%;
     background-color: darkcyan;
     color: white;
+    overflow: auto;
+    font-size: 13px;
 }
 /* ------------------------------------------------------ End of Message styles -----------------------------------------------*/
 

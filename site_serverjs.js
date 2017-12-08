@@ -366,6 +366,19 @@ function update_info_box(node_object){
     document.getElementById("flavour").innerHTML = node_object.flavour;
     document.getElementById("flavour").innerHTML = node_object.flavour;
     
+    if(node_object.playstyle == "Gunner"){
+        document.getElementById("sharp").innerHTML = "Recoil: " + node_object.recoil;
+        document.getElementById("sharp_img").style.borderStyle = "hidden";
+        document.getElementById("sharp_p").innerHTML = "Deviation: " + node_object.deviation;
+         document.getElementById("sharp_p_img").style.borderStyle = "hidden";
+    }
+    else{
+        document.getElementById("sharp").innerHTML = "Sharpness";
+         document.getElementById("sharp_img").style.borderStyle = "solid";
+        document.getElementById("sharp_p").innerHTML = "Sharpness + 1";
+         document.getElementById("sharp_p_img").style.borderStyle = "solid";
+    }
+    
     if (node_object.upgrade.length != 0){
         document.getElementById("parent_lable").innerHTML = "Material List";
         document.getElementById("up_cost_lable").innerHTML = "Cost"
@@ -1892,6 +1905,9 @@ function save_current_option(input_obj, acq_method){
     var gear_type = selected_gear;
     var craft_path = acq_method;
     var target_gear = curr_obj.target;
+    
+    
+    
     //console.log(curr_obj);
     //check_saved_list(gear_type, target_gear, craft_path);
     
@@ -1903,10 +1919,8 @@ function save_current_option(input_obj, acq_method){
         localStorage.setItem("saved_list", arrText);
         alert("List saved to local storage.");
         
-        
-        
-        
-        fetch(server+"/increment_wpn_stat/"+gear_type).then((resp)=>{
+        fetch(server+"/increment_type_stat/" + gear_type + "," + target_gear).then((resp)=>{
+                
                 return resp.text();
             }).then((text)=>{
                 //alert(text);
@@ -1933,7 +1947,7 @@ function save_current_option(input_obj, acq_method){
             
             alert("List saved to local storage.");
             
-            fetch(server+"/increment_wpn_stat/"+gear_type).then((resp)=>{
+            fetch(server+"/increment_type_stat/" + gear_type + "," + target_gear).then((resp)=>{
                 return resp.text();
                 }).then((text)=>{
                     //alert(text);
@@ -2149,18 +2163,41 @@ function alert_stat(){
                 var returned_stat = JSON.parse(returned_data);
                 //console.log("server output" + returned_data);
                 //alert(returned_stat);
-                
-                var alert_string = "Global Bookmarked Weapon Statistics:\n\n";
+                var return_type_data = Object.assign({}, returned_stat[0]);
+                var alert_header = "Global Statistics";
+                var alert_string = "";
                 for(var index = 0; index < wpn_abbrv.length; index += 1){
-                    alert_string += "# of saved " + wpn_name[index] + " lists: " + returned_stat[wpn_abbrv[index]] + " list";
-                    if(returned_stat[wpn_abbrv[index]] > 1){
+                    alert_string += "" + wpn_name[index] + ": " + return_type_data[wpn_abbrv[index]] + " list";
+                    if(return_type_data[wpn_abbrv[index]] > 1){
                         alert_string += "s";
                     }
-                    alert_string += "\n";
+                    alert_string += "<br>";
                 }
-                alert_string += "\n";
-        
-                alert(alert_string);
+                
+                
+                if(returned_stat[1] > 0){
+                    alert_string += "<br><br>";
+                    alert_string += "TOP SAVED WEAPON";
+                    
+                    if(returned_stat[2].length > 1){
+                        alert_string += "S";
+                    }
+                    
+                    alert_string += "<br><br>";
+                    
+                    for(var w_index = 0; w_index < returned_stat[2].length; w_index += 1){
+                        
+                        alert_string += returned_stat[2][w_index] + " at " + returned_stat[1] + " time";
+                        
+                        if(returned_stat[1] > 1){
+                            alert_string += "s";
+                        }
+                        alert_string += "<br>";
+                    }
+                }
+                
+                pop_up(alert_header, alert_string);
+                //alert(alert_string);
                 
                 
                 //curr_selected_tree = document.getElementById("clipboard").innerHTML;
@@ -2393,7 +2430,8 @@ function display_bkmk_mat_list(mat_obj){
         delete_bkmk_entry();
         var input_key = bkmk_data_id[0].slice();
         
-        fetch(server+"/decrement_wpn_stat/"+input_key).then((resp)=>{
+        fetch(server+"/decrement_type_stat/" + input_key + "," + bkmk_data_id[1]).then((resp)=>{
+                
                 return resp.text();
             }).then((text)=>{
                 //alert(text);
