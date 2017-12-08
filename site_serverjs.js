@@ -367,16 +367,29 @@ function update_info_box(node_object){
     document.getElementById("flavour").innerHTML = node_object.flavour;
     
     if(node_object.playstyle == "Gunner"){
-        document.getElementById("sharp").innerHTML = "Recoil: " + node_object.recoil;
         document.getElementById("sharp_img").style.borderStyle = "hidden";
-        document.getElementById("sharp_p").innerHTML = "Deviation: " + node_object.deviation;
-         document.getElementById("sharp_p_img").style.borderStyle = "hidden";
+        document.getElementById("sharp_p_img").style.borderStyle = "hidden";
+        
+        if(node_object.recoil != ""){
+            document.getElementById("sharp").innerHTML = "Recoil: " + node_object.recoil;
+        }
+        else{
+            document.getElementById("sharp").innerHTML = "Coating Boost: " + node_object.coat;
+        }
+        
+        if(node_object.deviation != ""){
+            document.getElementById("sharp_p").innerHTML = "Deviation: " + node_object.deviation;
+        }
+        else{
+            document.getElementById("sharp_p").innerHTML = "Arc Shot: " + node_object.arc;
+        }
+        
     }
     else{
         document.getElementById("sharp").innerHTML = "Sharpness";
-         document.getElementById("sharp_img").style.borderStyle = "solid";
+        document.getElementById("sharp_img").style.borderStyle = "solid";
         document.getElementById("sharp_p").innerHTML = "Sharpness + 1";
-         document.getElementById("sharp_p_img").style.borderStyle = "solid";
+        document.getElementById("sharp_p_img").style.borderStyle = "solid";
     }
     
     if (node_object.upgrade.length != 0){
@@ -2792,6 +2805,6 @@ var gear_info_obj = {
     SA: ["Switch Axe", "A powerful melee weapon, capable of such momentum that the hunter swinging it is dragged around by the momentum of each swing. Described as a marvel of technology capable of phantasmagorical might. The switch axe has transformation capabilities, with one blade shifting while being sheathed as well as sliding to a different position to change its attack style. In its secondary form, the weapon behaves far differently from its standard variation and uses a phial of specialized coating to add certain effects to the weapon. The weapon is also able to overload this phial, ending in a concentrated burst."], 
     CB: ["Charge Blade", "Charge Blade is somewhat similar to the Switch Axe, with the ability to switch between two different weapon modes: the Sword Mode and the Axe Mode. Sword Mode comes with a shield for blocking, is relatively quick, and is primarily used for charging up energy. Once it has been charged enough, it can be stored in the shield, and the hunter can use powerful explosive attacks in the slower but stronger Axe Mode. The shield itself can be charged for a damage bonus, and enables the destructive Super Amped Element Discharge (colloquially referred to as the Ultra Burst)."],
     IG: ["Insect Glaive", "Insect Glaive also known as Insect Taming Staff, Insect Operating Rod, Neopteron Handler, or Insect Rod) is a double-ended rod capable of quick, fluid attacks similar to the Long Sword. It also allows the hunter to jump at any time in a pole vaulting fashion. The rod is also capable of summoning a Kinsect to attack monsters. The hunter can either freely send out the Kinsect on a direct flight, or first shoot out a pheromone bullet at the target that works as a beacon for the Kinsect. This allows the insect to home in. When the Kinsect successfully hits an enemy, it will drain out an essence which varies in color and attribute, depending on which part of the monster it hits. This will then power up the hunter when the Kinsect is called back. The Kinsect is always found clinging on the right arm of the hunter when it's not in flight."],
-    LBG: ["Ligh Bowgun", "The Light Bowgun is a bowgun that allows hunters to move around at a normal running speed. Hunters can unsheathe and sheathe it faster than a heavy bowgun due to the clear weight difference. Due to its compact size, it does not come with as much firepower as its larger counterpart. Most hunters prefer light bowguns because of the fast movement and reloading speed. Light bowguns are usually easy to make and master. It has the ability to rapid fire certain ammunition types depending on each individual gun, and is best used for elemantal shots."], 
+    LBG: ["Light Bowgun", "The Light Bowgun is a bowgun that allows hunters to move around at a normal running speed. Hunters can unsheathe and sheathe it faster than a heavy bowgun due to the clear weight difference. Due to its compact size, it does not come with as much firepower as its larger counterpart. Most hunters prefer light bowguns because of the fast movement and reloading speed. Light bowguns are usually easy to make and master. It has the ability to rapid fire certain ammunition types depending on each individual gun, and is best used for elemantal shots."], 
     HBG: ["Heavy Bowgun", "The Heavy Bowgun is the ranged weapon of choice for those who wish to have as much firepower as they can, while still maintaining some distance. While much slower than their Light Bowgun cousins, they are the only ranged weapon that allows a shield to be attached, giving them guardING capabilities. For an experienced gunner, this is more of a restraint since you can only attach a power barrel OR a shield."], 
     BOW: ["Bow", "The Bow is one of the most tactical weapons. Although it is very versatile and has a wide range of options, it is not the weapon of choice for an amateur but rather a weapon of choice for a skilled hunter. The Bow is a naturally fast weapon. When using a Bow, a common tactic is hit and run. Also, using the bow requires the knowledge of the monsters' weak points and elemental weaknesses in order to ease the task of taking it down. This is, of course, not a problem; as there are a large number of elemental Bows at the hunter's disposal. Last but not least, the use of charge levels and coatings allow a large set of options. A hunters choice of what charges and coatings he or she is going to use is very important."]};

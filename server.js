@@ -369,8 +369,24 @@ var lbg_Blitz_Bowgun_Path = [
     [{type: 'node', name: "Blitz Kirin King", rarity: 10, attack: 325, ele_type: 'Reload Speed', ele_val: 'Average', num_slot: 'OO-', affinity: '0%', flavour: "A bowgun made from unusual materials in response to hard-core Gunner demand.", upgrade: ["120000z", "Kirin Finehide", 8, "Platinum Mane", 4, "Kirin Azure Peak", 3, "Garuga Silverpelt", 3], craft: [], shop: 'N/A', sharp: "Img/blank.png", p_sharp: "Img/blank.png", pic: "Img/Weap/lbg/Blitz_Kirin_King/render.png", parent: ["Blitz Kirin", 0, 2], playstyle: 'Gunner', extra: 'Defense +65 <br> RF: Thunder S Para S', recoil: 'Low', deviation: 'None'}]
 ];
 
+var hbg_Lunastras_Cannon_Path = [
+    [{type: 'node', name: "Lunastra's Cannon", rarity: 6, attack: '270 - 336', ele_type: 'Reload Speed', ele_val: 'Average', num_slot: 'O--', affinity: '0%', flavour: "A Heavy Bowgun with Lunastra materials. A simple design with immeasurable power.", upgrade: [], craft: ["60000z", "Lunastra Carapace", 4, "Fire Dragon Scale", 6, "Lunastra Mane", 2, "Firecell Stone", 1], shop: 'N/A', sharp: "Img/blank.png", p_sharp: "Img/blank.png", pic: "Img/Weap/hbg/Lunastra's_Cannon/render.png", parent: [], playstyle: 'Gunner', extra: 'Defense +15<br>CF: Norm 2  Crag 1  Clust 2', recoil: 'Some', deviation: 'None'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Lunastra's Flames", rarity: 7, attack: '285 - 355', ele_type: 'Reload Speed', ele_val: 'Average', num_slot: 'OO-', affinity: '0%', flavour: "A Heavy Bowgun with Lunastra materials. A simple design with immeasurable power.", upgrade: ["70000z", "Lunastra Carapace", 4, "Teostra Gem", 1, "Lunastra Mane", 1, "Firecell Stone", 2], craft: [], shop: 'N/A', sharp: "Img/blank.png", p_sharp: "Img/blank.png", pic: "Img/Weap/hbg/Lunastra's_Flames/render.png", parent: ["Lunastra's Cannon", 0, 0], playstyle: 'Gunner', extra: 'Defense +15<br>CF: Norm 2  Crag 2  Clust 2', recoil: 'Some', deviation: 'None'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Lunastra's Firestorm", rarity: 10, attack: '420 - 523', ele_type: 'Reload Speed', ele_val: 'Average', num_slot: 'OO-', affinity: '0%', flavour: "A Heavy Bowgun with Lunastra materials. A simple design with immeasurable power.", upgrade: ["120000z", "Lunastra Cortex", 4, "Fire Dragon Hardclaw", 4, "Teostra Gem", 1, "Allfire Stone", 3], craft: [], shop: 'N/A', sharp: "Img/blank.png", p_sharp: "Img/blank.png", pic: "Img/Weap/hbg/Lunastra's_Firestorm/render.png", parent: ["Lunastra's Flames", 0, 2], playstyle: 'Gunner', extra: 'Defense +25<br>CF: Norm 2  Crag 2  Clust 2', recoil: 'Some', deviation: 'None'}]
+];
+
+var bow_Morsel_Bowfish_Path = [
+    [{type: 'node', name: "Morsel Bowfish", rarity: 2, attack: 84, ele_type: 'Water', ele_val: '270', num_slot: '---', affinity: '0%', flavour: "An eco-friendly Bow designed to make use of old swordfish leftovers.", upgrade: [], craft: ["4650z", "Speartuna", 1, "Monster Bone L", 2, "Machalite Ore", 2, "Voucher", 2], shop: 'N/A', sharp: "Img/blank.png", p_sharp: "Img/blank.png", pic: "Img/Weap/bow/Morsel_Bowfish/render.png", parent: [], playstyle: 'Gunner', extra: 'Rapid 2 -> Spread 2 -><br>Spread 3 -> Rapid 3', recoil: '', deviation: '', coat: 'No Boost', arc: 'Wide'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Ample Bowfish", rarity: 5, attack: 96, ele_type: 'Water', ele_val: '360', num_slot: 'OO-', affinity: '0%', flavour: "An eco-friendly Bow designed to make use of old swordfish leftovers.", upgrade: ["35000z", "Speartuna", 2, "Ancient Fish", 5, "Monster Keenbone", 5, "Gourmet Voucher", 3], craft: [], shop: 'N/A', sharp: "Img/blank.png", p_sharp: "Img/blank.png", pic: "Img/Weap/bow/Ample_Bowfish/render.png", parent: ["Morsel Bowfish", 0, 0], playstyle: 'Gunner', extra: 'Rapid 2 -> Spread 3 -><br>Spread 4 -> Rapid 3', recoil: '', deviation: '', coat: 'No Boost', arc: 'Wide'}], 
+    [{type: 'connector', pic: 'Img/connector_5.png'}], 
+    [{type: 'node', name: "Viand Bowfish", rarity: 8, attack: 144, ele_type: 'Water', ele_val: '480', num_slot: 'OOO', affinity: '0%', flavour: "An eco-friendly Bow designed to make use of old swordfish leftovers.", upgrade: ["85000z", "Speartuna", 2, "Gourmet Voucher", 3, "T.Najarala Splasher", 4, "Cathangeafish", 1], craft: [], shop: 'N/A', sharp: "Img/blank.png", p_sharp: "Img/blank.png", pic: "Img/Weap/bow/Viand_Bowfish/render.png", parent: ["Ample Bowfish", 0, 2], playstyle: 'Gunner', extra: 'Rapid 2 -> Spread 3 -><br>Spread 4 -> Rapid 4', recoil: '', deviation: '', coat: 'No Boost', arc: 'Wide'}]
+];
+
 //{type: 'node', name: "", rarity: , attack: , ele_type: '', ele_val: '', num_slot: '', affinity: '', flavour: "", upgrade: [], craft: [], shop: '', sharp: "", p_sharp: "", pic: "", parent: [], playstyle: '', extra: ''}
-//{type: 'node', name: "", rarity: , attack: , ele_type: '', ele_val: '', num_slot: '', affinity: '', flavour: "", upgrade: [], craft: [], shop: '', sharp: "", p_sharp: "", pic: "", parent: [], playstyle: '', extra: '', recoil: '', deviation: ''}
+//{type: 'node', name: "", rarity: , attack: , ele_type: '', ele_val: '', num_slot: '', affinity: '', flavour: "", upgrade: [], craft: [], shop: '', sharp: "", p_sharp: "", pic: "", parent: [], playstyle: '', extra: '', recoil: '', deviation: '', coat: '', arc: ''}
 //{type: 'connector', pic: 'Img/connector_.png'}
 //{type: 'blank'}
 
@@ -386,8 +402,8 @@ var sa_trees = ["Great_Inceadeus_Path"];
 var cb_trees = ["Elendskraft_Path"];
 var ig_trees = ["Fatalis_Glaive_Path"];
 var lbg_trees = ["Blitz_Bowgun_Path"];
-var hbg_trees = [];
-var bow_trees = [];
+var hbg_trees = ["Lunastras_Cannon_Path"];
+var bow_trees = ["Morsel_Bowfish_Path"];
 
 var type_stat = {gs: 0, ls: 0, sns: 0, db: 0, ham: 0, hrn: 0, lan: 0, gl: 0, sa: 0, cb: 0, ig: 0, lbg: 0, hbg: 0, bow: 0};
 var wpn_stat = {};
